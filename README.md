@@ -11,12 +11,14 @@ My favorite languages are **JavaScript, Go, C and C++**, but I'm at home in pret
 
 | Project | What it is | Built with |
 | :-- | :-- | :-- |
+| **[killport](https://github.com/agustinyarrus/killport)** | Frees a busy port on Windows, carefully: finds the process, service, container or WSL process behind it, closes it with Ctrl+C before forcing it, and verifies the port is really free | `Go` `Win32` |
 | **[Carrona](https://github.com/agustinyarrus/carrona)** | Top-down zombies with active ragdolls: custom XPBD physics, PD-driven muscles and IK walking | `JavaScript` `Three.js` |
 | **[Lux](https://github.com/agustinyarrus/lux)** | Native, minimal image viewer for Windows — ~360 KB and portable. Lumen's low-level sibling | `C++` `Win32` `Direct2D` `WIC` |
 | **[Cipher](https://github.com/agustinyarrus/cipher)** | Dark, frameless code viewer: highlights 250+ languages and decompiles Java `.class` files | `Go` `Chroma` `CFR` |
 | **[Folio](https://github.com/agustinyarrus/folio)** | Dark, frameless, ultra-minimal Markdown reader for Windows — 100% offline | `Go` `WebView2` |
 | **[Lumen](https://github.com/agustinyarrus/lumen)** | Dark, frameless, ultra-minimal image viewer for Windows — 100% offline | `Go` `WebView2` |
 | **[Capcom](https://github.com/agustinyarrus/capcom)** | Desktop chat console for local LLMs, styled like NASA mission control — one ~520 KB `.exe`, no dependencies | `C#` `llama.cpp` |
+| **[img](https://github.com/agustinyarrus/img)** · **[clip2qr](https://github.com/agustinyarrus/clip2qr)** · **[pdf-merge](https://github.com/agustinyarrus/pdf-merge)** | Console tools for Windows: batch image conversion with libwebp-exact colors, clipboard to a QR code in the terminal, and a PDF merger with its own parser | `Go` |
 
 ### How I build
 
