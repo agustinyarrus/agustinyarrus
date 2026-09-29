@@ -5,7 +5,7 @@
 
 I write software the way I like mathematics: **small, exact and self-contained**. Native Windows apps measured in kilobytes, a physics engine in plain JavaScript, file-format parsers with no library underneath — and every claim checked against an independent oracle instead of by eye.
 
-**~115,000 lines** of my own code · **~40,000 lines** of tests · **13** public repos · **5** of them build from nothing but a standard library.
+**~149,000 lines** of my own code · **~48,000 lines** of tests · **14** public repos · **5** of them build from nothing but a standard library.
 
 ## Where the math lives
 
@@ -18,20 +18,21 @@ Algebra, physics, geometry, graphics and minimal design aren't hobbies next to m
 
 | | Where | The idea |
 |:--|:--|:--|
-| **Physics** | [Carrona](https://github.com/agustinyarrus/carrona) | Ragdolls on my own XPBD solver — 7 substeps per frame, compliant constraints, PD "muscles" with $`k = 1 - e^{-130h}`$ and a damping ratio $`\zeta \approx 0.73`$ |
+| **Physics** | [Carrona](https://github.com/agustinyarrus/carrona) | Ragdolls on my own XPBD solver — 7 substeps per frame, compliant constraints, PD "muscles" with <i>k</i> = 1 − <i>e</i><sup>−130<i>h</i></sup> and a damping ratio <i>ζ</i> ≈ 0.73 |
 | **Geometry** | Carrona | Legs placed by analytic two-bone IK: the knee is where two circles meet |
-| **Linear algebra** | [Lux](https://github.com/agustinyarrus/lux) · [Lumen](https://github.com/agustinyarrus/lumen) | Zoom is a homothety centered on the cursor; images become mipmap pyramids drawn at a scale kept in $`[\tfrac12, 1]`$ |
-| **Abstract algebra** | [clip2qr](https://github.com/agustinyarrus/clip2qr) · [Prisma](https://github.com/agustinyarrus/prisma) | Reed–Solomon over $`\mathrm{GF}(2^8)`$ and BCH codes for QR; the 8 EXIF orientations as the dihedral group $`D_4`$ |
+| **Linear algebra** | [Lux](https://github.com/agustinyarrus/lux) · [Lumen](https://github.com/agustinyarrus/lumen) | Zoom is a homothety centered on the cursor; images become mipmap pyramids drawn at a scale kept in [½, 1] |
+| **Abstract algebra** | [clip2qr](https://github.com/agustinyarrus/clip2qr) · [Prisma](https://github.com/agustinyarrus/prisma) | Reed–Solomon over GF(2⁸) and BCH codes for QR; the 8 EXIF orientations as the dihedral group <i>D</i><sub>4</sub> |
 | **Color science** | [img](https://github.com/agustinyarrus/img) · Prisma · Lux | libwebp's fixed-point BT.601 YUV→RGB reproduced bit for bit; RGB→XYZ from chromaticities with Bradford adaptation; ACES tone mapping |
-| **Graph theory** | [pdf-merge](https://github.com/agustinyarrus/pdf-merge) · [killport](https://github.com/agustinyarrus/killport) | PDF objects deduplicated as a Merkle DAG in Tarjan order; process forests rebuilt in $`O(n)`$; Dijkstra flow fields for hordes |
-| **Numerical methods** | [vidsquash](https://github.com/agustinyarrus/vidsquash) | Hitting an exact file size with the secant method on size(bitrate) |
+| **Graph theory** | [pdf-merge](https://github.com/agustinyarrus/pdf-merge) · [killport](https://github.com/agustinyarrus/killport) | PDF objects deduplicated as a Merkle DAG in Tarjan order; process forests rebuilt in <i>O</i>(<i>n</i>); Dijkstra flow fields for hordes |
+| **Graphics** | [Chainmate](https://github.com/agustinyarrus/chainmate) · Lux | Godot's Forward+ rebuilt pass by pass in WebGL2 — cascaded shadows, SSAO, SSIL, volumetric fog, glow; GPU-tiled mipmaps in Direct2D |
+| **Numerical methods** | Chainmate · [vidsquash](https://github.com/agustinyarrus/vidsquash) | float32 rounding reproduced exactly — even a GPU's inexact reciprocal, <i>a</i>/<i>b</i> = <i>a</i>·rcp(<i>b</i>) — so particles match the original to 2·10⁻⁶; hitting an exact file size with the secant method on size(bitrate) |
 | **Minimal design** | all of them | Dark, frameless interfaces; font sizes rounded to whole device pixels; ClearType kept intact |
 
 ## Selected work
 
 | Project | What it is | Built with | Proof |
 |:--|:--|:--|:--|
-| **Chainmate** <sub>private</sub> | A Godot 4.7.2 chess roguelite rebuilt for the web and Android, verified against the original `.exe` | `JavaScript` `three.js` `WebGL2` `WASM` | 258 oracle tests · 28,000+ glyphs bit-identical |
+| **[Chainmate](https://github.com/agustinyarrus/chainmate)** | A Godot 4.7.2 chess roguelite rebuilt for the web and Android, verified against the original `.exe` | `JavaScript` `three.js` `WebGL2` `WASM` | 258 oracle tests · 28,000+ glyphs bit-identical |
 | **[Carrona](https://github.com/agustinyarrus/carrona)** | Top-down zombies where every body is an active ragdoll | `JavaScript` `three.js` `GLSL` | own XPBD engine · 1,207 physics checks |
 | **[killport](https://github.com/agustinyarrus/killport)** | Frees a busy port on Windows — process, service, container or WSL — and proves it stays free | `Go` `Win32/NT` | 0 dependencies · 613 tests |
 | **[Lux](https://github.com/agustinyarrus/lux)** | Native image viewer built on GPU-tiled mipmap pyramids | `C++17` `Direct2D` `WIC` | 24,000-px panorama at 57–60 fps |
@@ -40,7 +41,7 @@ Algebra, physics, geometry, graphics and minimal design aren't hobbies next to m
 | **[Folio](https://github.com/agustinyarrus/folio)** · **[Lumen](https://github.com/agustinyarrus/lumen)** · **[Cipher](https://github.com/agustinyarrus/cipher)** | Dark, frameless Markdown reader, image viewer and code viewer | `Go` `WebView2` | 127 formats · 250+ languages |
 | **[clip2qr](https://github.com/agustinyarrus/clip2qr)** · **[pdf-merge](https://github.com/agustinyarrus/pdf-merge)** · **[img](https://github.com/agustinyarrus/img)** · **[vidsquash](https://github.com/agustinyarrus/vidsquash)** | Console tools: QR encoder, PDF merger, image converter, target-size video | `Go` | own QR and PDF engines · 0 dependencies |
 
-### Chainmate — the same game, proven <sub>· private repo</sub>
+### [Chainmate](https://github.com/agustinyarrus/chainmate) — the same game, proven
 
 `JavaScript` · `three.js` · `WebGL2` · `WebAssembly` · `AudioWorklet` · `Android`
 
@@ -71,8 +72,8 @@ I took a shipped Godot 4.7.2 game — a 110 MB `.exe`, no project files — and 
 
 A top-down zombie shooter where every body on screen — the player included — is an **active ragdoll**. There isn't a single animation clip, texture file or sound file in the repo: motion comes from physics, textures from noise, sound from a synthesizer.
 
-- **XPBD solver** on flat typed arrays: 7 substeps per frame ($`h = 1/420`$ s at 60 fps), one Gauss–Seidel pass per substep, compliance tuned per constraint (bones $`4\cdot10^{-7}`$, torso braces $`2\cdot10^{-6}`$, joint limits $`2\cdot10^{-5}`$ m/N). Nothing in `src/phys` imports three.js.
-- **Muscles:** each body is 16 particles, 15 bones and 48 constraints (65 kg), pulled toward an animated pose by PD control — $`k = 1 - e^{-130h}`$, damping $`1.45\sqrt{km}`$, so $`\zeta \approx 0.73`$.
+- **XPBD solver** on flat typed arrays: 7 substeps per frame (<i>h</i> = 1/420 s at 60 fps), one Gauss–Seidel pass per substep, compliance tuned per constraint (bones 4·10⁻⁷, torso braces 2·10⁻⁶, joint limits 2·10⁻⁵ m/N). Nothing in `src/phys` imports three.js.
+- **Muscles:** each body is 16 particles, 15 bones and 48 constraints (65 kg), pulled toward an animated pose by PD control — <i>k</i> = 1 − <i>e</i><sup>−130<i>h</i></sup>, damping 1.45√(<i>km</i>), so <i>ζ</i> ≈ 0.73.
 - **Walking:** the gait cycle advances with distance walked, so planted feet can't skate (measured: 0.18 m/s); cubic Hermite swing; analytic two-bone IK; recovery steps and falls when the balance error crosses its thresholds.
 - **Numbers:** 40 ragdolls + 40 boxes + 12 cylinders simulated in 9 ms per frame; 56 fps on a Redmi Note 14 Pro. **1,207 automated checks** in 19 suites measure physical quantities — foot skate, bone stretch, knees bending backwards, how still a corpse lies.
 
@@ -81,10 +82,10 @@ A top-down zombie shooter where every body on screen — the player included —
 
 - **Collision:** spheres against the floor, yaw-rotated boxes and cylinders; bones as capsules; positional friction (static 0.92, dynamic 0.30); a spatial hash with 0.55 m cells and 16,384 buckets; analytic ray–capsule and ray–box tests for aiming.
 - **Stable by construction:** zero restitution, per-substep velocity caps, depenetration limited to the substep's own motion plus 8 mm, and a last pass that re-projects bones to their rest length.
-- **Corpses:** limp bodies get rigid-body damping from the full 3×3 inertia tensor — $`\omega = I^{-1}L`$, each particle pulled toward $`v_{cm} + \omega \times r`$ — which kills jitter without killing momentum.
+- **Corpses:** limp bodies get rigid-body damping from the full 3×3 inertia tensor — <i>ω</i> = <i>I</i><sup>−1</sup><i>L</i>, each particle pulled toward <i>v</i><sub>cm</sub> + <i>ω</i> × <i>r</i> — which kills jitter without killing momentum.
 - **Joint limits without Euler angles:** cones (knees 65°, elbows 80°) in a torso frame rebuilt from the particles by Gram–Schmidt.
-- **Hits:** impulses split along the bone and capped per particle; the muscles around a hit go slack for 0.10–0.32 s; off-center shots spin the body by $`r \times J`$.
-- **Ballistics:** falling bodies predict their impact time $`t = \left(-v + \sqrt{v^2 + 2gh}\right)/g`$ and reach out with their hands; aimed projectiles solve the launch angle in a form that stays accurate when gravity is small.
+- **Hits:** impulses split along the bone and capped per particle; the muscles around a hit go slack for 0.10–0.32 s; off-center shots spin the body by <i>r</i> × <i>J</i>.
+- **Ballistics:** falling bodies predict their impact time <i>t</i> = (−<i>v</i> + √(<i>v</i>² + 2<i>gh</i>))/<i>g</i> and reach out with their hands; aimed projectiles solve the launch angle in a form that stays accurate when gravity is small.
 - **The horde:** one Dijkstra flow field (0.4 m grid, my own binary heap) steers every zombie; separation and flanking on top; distant bodies skip detailed collision.
 - **Rendering:** instanced bodies; my own GLSL (color grading, a sprite batch of camera-, beam- and surface-aligned quads, the flashlight cone); seamless procedural textures baked in Web Workers; every shader compiled behind the menu, so nothing hitches mid-game.
 - **Content:** 104 procedurally modeled weapons (hitscan, beams, rails, chain lightning, projectiles, streams, sonic waves), 5 maps, an 8-mission campaign plus endless mode, 25 ways to get up, 23 ways to fall, 21 flinches.
@@ -109,7 +110,7 @@ Finds what really holds a port — a process, a service, a Docker or Podman cont
 
 - **Socket tables:** `GetExtendedTcpTable` / `GetExtendedUdpTable` for IPv4 and IPv6, rows parsed by hand; `GetOwnerModuleFrom*Entry` names the service hiding inside a `svchost`.
 - **One-call snapshot:** `NtQuerySystemInformation`; image paths without opening a single process; another process's working folder read from its PEB (WOW64-aware) and turned into a project name (`package.json`, `go.mod`, `Cargo.toml`, `pyproject.toml`, `.csproj`) and a git branch (`.git/HEAD`, no git needed).
-- **Process forest in $`O(n)`$:** a parent link counts only if the parent was born first; a lowest-common-ancestor search across before/after snapshots finds the supervisor (nodemon, pm2…) that brought a server back.
+- **Process forest in <i>O</i>(<i>n</i>):** a parent link counts only if the parent was born first; a lowest-common-ancestor search across before/after snapshots finds the supervisor (nodemon, pm2…) that brought a server back.
 - **Docker and Podman:** my own HTTP/1.1 client (content-length, chunked, read-until-close) over overlapped named pipes opened with `SECURITY_IDENTIFICATION`, so a fake pipe server can't impersonate an elevated killport. The engine is found through `DOCKER_HOST`, the active Docker context or the default pipes.
 - **WSL:** an embedded POSIX `sh` script reads `ss` or `/proc/net`, confirms the owner by socket inode, and signals SIGINT → SIGTERM → SIGKILL, re-checking the start time before each signal. It never starts a distro.
 - **Localised Windows:** the `netsh` parsers anchor on structure — dashed underlines, indentation, SDDL — never on words.
@@ -124,7 +125,7 @@ Finds what really holds a port — a process, a service, a Docker or Podman cont
 
 `C++17` · `Win32` · `Direct2D` · `DirectWrite` · `WIC` · `SSE2` · one ~860 KB portable `.exe`
 
-- **Mipmap pyramids on the GPU.** Every image is halved with a 2×2 box filter in premultiplied alpha (exact rounding, SSE2) and cut into 2048-px tiles with 8-px borrowed margins. The level drawn keeps the on-screen scale in $`[\tfrac12, 1]`$, which gets past Direct2D's 16,384-px bitmap limit: a **24,000-px panorama pans at 57–60 fps** and a 48 MP photo renders at 60 fps after opening in 335–352 ms.
+- **Mipmap pyramids on the GPU.** Every image is halved with a 2×2 box filter in premultiplied alpha (exact rounding, SSE2) and cut into 2048-px tiles with 8-px borrowed margins. The level drawn keeps the on-screen scale in [½, 1], which gets past Direct2D's 16,384-px bitmap limit: a **24,000-px panorama pans at 57–60 fps** and a 48 MP photo renders at 60 fps after opening in 335–352 ms.
 - **Instant next image:** two decoder threads with their own WIC factories and prefetch in the direction you're browsing — **0.3 ms** when prefetched; JPEGs first decoded at 1/2–1/8 scale through DCT scaling.
 - **171 file extensions:** everything WIC decodes, camera RAW, SVG, EMF/WMF, EXR/HDR, DDS/KTX/VTF (with my own BC1–5 decoders), GIMP XCF, FITS/DICOM and retro formats (Amiga, Atari, C64, ZX Spectrum, PlayStation).
 
@@ -132,7 +133,7 @@ Finds what really holds a port — a process, a service, a Docker or Podman cont
 <summary><b>Under the hood</b></summary>
 
 - **Frame budget:** 6 ms of tile uploads per frame, from the center out; missing tiles borrow from coarser levels; a 768 MB GPU cap with LRU eviction; the image cache sized to 1/16 of RAM.
-- **Exact premultiplication:** $`(t + (t \gg 8)) \gg 8`$ with $`t = c\,a + 128`$, verified on all 65,536 pairs.
+- **Exact premultiplication:** (<i>t</i> + (<i>t</i> ≫ 8)) ≫ 8 with <i>t</i> = <i>c</i>·<i>a</i> + 128, verified on all 65,536 pairs.
 - **No seams:** a test sweeps 400 random scales and offsets and checks that every screen column is drawn by exactly one tile.
 - **Zoom:** a homothety about the cursor, ×1.18 per wheel notch, with the origin snapped to whole pixels so 100 % is pixel-exact; high-quality cubic filtering, nearest-neighbor from 300 %.
 - **HDR files:** exposure from a log-luminance histogram → ACES filmic curve → sRGB through a lookup table.
@@ -154,11 +155,11 @@ Turns any image into the smallest lossless PNG or APNG, and understands transpar
 <details>
 <summary><b>Under the hood</b></summary>
 
-- **Color:** ITU-T H.273 code points; RGB→XYZ derived from chromaticities with Bradford adaptation; PNG's new `cICP` chunk; and a fix for Windows' AV1 decoder, which guesses the YCbCr matrix from the primaries: $`C = M_{\text{declared}}^{-1}\,M_{709}`$.
+- **Color:** ITU-T H.273 code points; RGB→XYZ derived from chromaticities with Bradford adaptation; PNG's new `cICP` chunk; and a fix for Windows' AV1 decoder, which guesses the YCbCr matrix from the primaries: <i>C</i> = <i>M</i><sub>declared</sub><sup>−1</sup> <i>M</i><sub>709</sub>.
 - **Encoder:** the smallest lossless color type; nine row-filter strategies, three of them raced on a 16×8-row sample; DEFLATE in parallel 1 MB chunks (pigz-style) with the checksums combined mathematically.
 - **Palette math:** colors are compared composited over black *and* over white — a positive-definite quadratic form, so k-means minimizes it exactly: median cut → Lloyd iterations → Floyd–Steinberg or Bayer 8×8.
 - **Background removal:** alpha is the least-squares projection of each pixel onto the subject–background line, with the subject color spread outward by BFS.
-- **Symmetry:** the 8 EXIF orientations as $`D_4`$ — 2×2 integer matrices whose inverse is their transpose (fig. 4).
+- **Symmetry:** the 8 EXIF orientations as <i>D</i><sub>4</sub> — 2×2 integer matrices whose inverse is their transpose (fig. 4).
 - **Robustness:** a thread pool with nested parallel loops, per-file SEH isolation, memory-mapped inputs from 64 MB, AVX2 filters, and a salvage inflater that recovers the readable rows of truncated PNGs.
 - **Tests:** 236 end-to-end cases against exact references, Pillow/OpenCV and my own reference PNG writer — also under AddressSanitizer — plus unit tests and mutation fuzzing.
 
@@ -182,7 +183,7 @@ A desktop console for local GGUF models, styled like Apollo mission control: it 
 Three dark, frameless viewers on one architecture: a Go backend on a random loopback port, a WebView2 front end, a window that is frameless from creation (CBT hook + subclassing) yet keeps Aero Snap, no white flash on startup, and single-instance hand-off.
 
 - **[Folio](https://github.com/agustinyarrus/folio)** — a Markdown reader for **127 file extensions** (JSON/JSON5, CSV with delimiter detection, reST, AsciiDoc, Org, MediaWiki, docx, odt, epub and HTML, all converted to Markdown). My own goldmark extensions: TeX math, GitHub alerts, `==mark==` `^sup^` `~sub~`, Obsidian wikilinks resolved by BFS over the vault, `:::` containers, and abbreviations matched by a hand-written **Aho–Corasick** automaton. KaTeX and mermaid load lazily behind LRU caches; live reload keeps you on the paragraph you were reading.
-- **[Lumen](https://github.com/agustinyarrus/lumen)** — an image viewer whose window is sized to the photo before it appears (it reads only the header); zoom about the cursor, $`t' = c + (t - c)\,s'/s`$, with exponential wheel steps $`s \cdot e^{-0.0015\,\Delta y}`$; natural sort, neighbor preloading, crossfades.
+- **[Lumen](https://github.com/agustinyarrus/lumen)** — an image viewer whose window is sized to the photo before it appears (it reads only the header); zoom about the cursor, <i>t′</i> = <i>c</i> + (<i>t</i> − <i>c</i>)·<i>s′</i>/<i>s</i>, with exponential wheel steps <i>s</i>·<i>e</i><sup>−0.0015Δ<i>y</i></sup>; natural sort, neighbor preloading, crossfades.
 - **[Cipher](https://github.com/agustinyarrus/cipher)** — a code viewer: 250+ languages through chroma's lexers and my own streaming formatter (byte-identical to chroma's HTML), the first 256 KB highlighted up front and the rest in 256-line chunks by a background job that carries the lexer state across chunks. From 1.0 to 1.1, a 12 MB log went from **69 s to 0.1 s** and language detection from **66 s to 3 ms**. Java `.class` files open as source through CFR.
 - **Typography:** every font size lands on a whole number of device pixels, with the weight stepped up at small sizes; Folio keeps an opaque scroll layer so Chromium rasterizes with ClearType instead of gray anti-aliasing (measured: 0 % of glyph pixels with subpixel color before, 37–89 % after).
 
@@ -190,10 +191,10 @@ Three dark, frameless viewers on one architecture: a Go backend on a random loop
 
 `Go` · one `.exe` each · a shared hand-written terminal UI: 24-bit pastel palette, 1/8-cell progress bars, CJK-aware widths, `NO_COLOR`, no escape codes when piped.
 
-- **[clip2qr](https://github.com/agustinyarrus/clip2qr)** — clipboard → QR code in the terminal, from **my own ISO/IEC 18004 encoder**: arithmetic in $`\mathrm{GF}(2^8)`$ modulo `0x11d` with doubled exp/log tables, Reed–Solomon generators $`\prod_i (x - \alpha^i)`$, versions 1–40, numeric/alphanumeric/byte modes, levels L–H, BCH(15,5) format and BCH(18,6) version codes, all 8 masks scored by the 4 penalty rules; `▀▄█` half-blocks draw two modules per character cell. zxing-cpp decodes **72 of 72** oracle codes, versions 1 to 40. Zero dependencies — the QR in fig. 5 is its output.
+- **[clip2qr](https://github.com/agustinyarrus/clip2qr)** — clipboard → QR code in the terminal, from **my own ISO/IEC 18004 encoder**: arithmetic in GF(2⁸) modulo `0x11d` with doubled exp/log tables, Reed–Solomon generators ∏<sub><i>i</i></sub> (<i>x</i> − <i>α</i><sup><i>i</i></sup>), versions 1–40, numeric/alphanumeric/byte modes, levels L–H, BCH(15,5) format and BCH(18,6) version codes, all 8 masks scored by the 4 penalty rules; `▀▄█` half-blocks draw two modules per character cell. zxing-cpp decodes **72 of 72** oracle codes, versions 1 to 40. Zero dependencies — the QR in fig. 5 is its output.
 - **[pdf-merge](https://github.com/agustinyarrus/pdf-merge)** — **my own tolerant PDF reader and writer:** xref tables and streams, object streams, incremental updates, broken-xref recovery by scanning, Flate with PNG/TIFF predictors, decryption R2–R6 (RC4, AES-128/256, ISO 32000-2 Algorithm 2.B); page selection (`file.pdf@1-3,5`), outlines, named destinations and AcroForm fields merged without collisions; **Merkle-DAG deduplication** — SHA-256 over a canonical form in which children are replaced by their hashes, in iterative-Tarjan order so cycles stay safe. Checked by a triple oracle: qpdf, pypdf and a PDFium pixel diff. Zero dependencies.
 - **[img](https://github.com/agustinyarrus/img)** — a batch image converter whose WebP colors match **libwebp bit for bit**: a port of its 14-bit fixed-point BT.601 YUV→RGB and 9-3-3-1 chroma upsampling (U and V packed in one `uint32`, so a single add interpolates both), where Go's stock conversion is off by up to 20 levels. Animated GIFs composited per disposal method; a `NumCPU` worker pool. Only `golang.org/x/image`.
-- **[vidsquash](https://github.com/agustinyarrus/vidsquash)** <sub>in progress</sub> — fits a video under a hard size limit (Discord, WhatsApp, Gmail…): a bitrate budget $`R = 8(B - O)/d`$ with an MP4 overhead model, a bits-per-pixel ladder that picks resolution and frame rate, two-pass encoding corrected with the secant method, HDR → SDR tone mapping and a VMAF/SSIM check. ffmpeg underneath, no Go dependencies.
+- **[vidsquash](https://github.com/agustinyarrus/vidsquash)** <sub>in progress</sub> — fits a video under a hard size limit (Discord, WhatsApp, Gmail…): a bitrate budget <i>R</i> = 8(<i>B</i> − <i>O</i>)/<i>d</i> with an MP4 overhead model, a bits-per-pixel ladder that picks resolution and frame rate, two-pass encoding corrected with the secant method, HDR → SDR tone mapping and a VMAF/SSIM check. ffmpeg underneath, no Go dependencies.
 
 ## Zero dependencies, by the numbers
 
@@ -201,7 +202,7 @@ Three dark, frameless viewers on one architecture: a Go backend on a random loop
 |:--|--:|:--|:--|
 | killport | 28.3k Go | **none** — standard library only | 79 Win32/NT bindings, HTTP/1.1 client, named-pipe `net.Conn`, flag parser, terminal UI |
 | pdf-merge | 6.9k Go | **none** | PDF lexer, parser and writer, decryption, Merkle deduplication |
-| clip2qr | 3.8k Go | **none** | QR encoder, $`\mathrm{GF}(2^8)`$ arithmetic, Reed–Solomon, BCH |
+| clip2qr | 3.8k Go | **none** | QR encoder, GF(2⁸) arithmetic, Reed–Solomon, BCH |
 | vidsquash | 3.9k Go | **none** (ffmpeg at run time) | rate-control planner, ffprobe parsing, quality check |
 | Capcom | 12.6k C# | **none** — .NET Framework in-box | Markdown renderer, highlighter, JSON writer, SSE client, GDI interface |
 | Carrona | 21.5k JS | three.js, for rendering | XPBD engine, IK, flow fields, synthesizer, ZIP/PNG/ICO writers, CDP client |
@@ -217,7 +218,7 @@ I don't eyeball; I measure against something that already knows the answer.
 
 | Project | Oracle |
 |:--|:--|
-| Chainmate | the original `.exe`, answering 20+ probes from inside the real engine — 258 tests |
+| [Chainmate](https://github.com/agustinyarrus/chainmate) | the original `.exe`, answering 20+ probes from inside the real engine — 258 tests |
 | clip2qr | zxing-cpp, decoding every version from 1 to 40 |
 | img | libwebp, bit for bit — 18 of 18 stress cases |
 | pdf-merge | qpdf's strict check, pypdf's text order and a PDFium pixel diff |
