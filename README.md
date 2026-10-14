@@ -1,3 +1,5 @@
+<p align="right"><sub><b>English</b> · <a href="https://github.com/agustinyarrus/agustinyarrus/blob/main/README.es.md">Español</a></sub></p>
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/agustinyarrus/agustinyarrus/main/header-dark.svg">
   <img alt="Agustin Yarrus — software developer from Argentina. Small, fast, dependency-free software. Into algebra, physics, geometry, graphics and minimal design. Go, C, C++, C#, JavaScript, TypeScript, Python, GLSL." src="https://raw.githubusercontent.com/agustinyarrus/agustinyarrus/main/header-light.svg" width="100%">
