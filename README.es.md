@@ -1,21 +1,21 @@
 <p align="right"><sub><a href="https://github.com/agustinyarrus/agustinyarrus/blob/main/README.md">English</a> · <b>Español</b></sub></p>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/agustinyarrus/agustinyarrus/main/header-dark.svg">
-  <img alt="Agustin Yarrus — desarrollador de software de Argentina. Software chico, rápido y sin dependencias. Me interesan el álgebra, la física, la geometría, los gráficos y el diseño minimalista. Go, C, C++, C#, JavaScript, TypeScript, Python, GLSL." src="https://raw.githubusercontent.com/agustinyarrus/agustinyarrus/main/header-light.svg" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/agustinyarrus/agustinyarrus/main/header-dark.es.svg">
+  <img alt="Agustin Yarrus — desarrollador de software de Argentina. Software chico, rápido y sin dependencias. Me interesan el álgebra, la física, la geometría, los gráficos y el diseño minimalista. Go, C, C++, C#, JavaScript, TypeScript, Python, GLSL." src="https://raw.githubusercontent.com/agustinyarrus/agustinyarrus/main/header-light.es.svg" width="100%">
 </picture>
 
 Escribo software como me gusta la matemática: **chico, exacto y autocontenido**. Apps nativas de Windows que se miden en kilobytes, un motor de física en JavaScript puro, parsers de formatos de archivo sin ninguna biblioteca abajo — y cada afirmación verificada contra un oráculo independiente en vez de a ojo.
 
-**~149.000 líneas** de código propio · **~48.000 líneas** de pruebas · **14** repos públicos · **5** de ellos se compilan sin nada más que una biblioteca estándar.
+**~169.000 líneas** de código propio · **~49.000 líneas** de pruebas · **18** repos públicos · **5** de ellos se compilan sin nada más que una biblioteca estándar.
 
 ## Dónde vive la matemática
 
 El álgebra, la física, la geometría, los gráficos y el diseño minimalista no son pasatiempos al lado de mi código — son la forma en que funciona. Seis figuras, cada una sacada de uno de mis repos:
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/agustinyarrus/agustinyarrus/main/figures-dark.svg">
-  <img alt="Seis figuras: una restricción de distancia de XPBD (Carrona), IK analítica de dos huesos (Carrona), el zoom alrededor del cursor como una homotecia (Lux, Lumen), las ocho orientaciones EXIF como el grupo diedral D4 (Prisma), un código QR hecho por el codificador Reed–Solomon propio de clip2qr sobre GF(2^8) y un campo de flujo de Dijkstra que guía a una horda (Carrona)." src="https://raw.githubusercontent.com/agustinyarrus/agustinyarrus/main/figures-light.svg" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/agustinyarrus/agustinyarrus/main/figures-dark.es.svg">
+  <img alt="Seis figuras: una restricción de distancia de XPBD (Carrona), IK analítica de dos huesos (Carrona), el zoom alrededor del cursor como una homotecia (Lux, Lumen), las ocho orientaciones EXIF como el grupo diedral D4 (Prisma), un código QR hecho por el codificador Reed–Solomon propio de clip2qr sobre GF(2^8) y un campo de flujo de Dijkstra que guía a una horda (Carrona)." src="https://raw.githubusercontent.com/agustinyarrus/agustinyarrus/main/figures-light.es.svg" width="100%">
 </picture>
 
 | | Dónde | La idea |
@@ -28,6 +28,7 @@ El álgebra, la física, la geometría, los gráficos y el diseño minimalista n
 | **Teoría de grafos** | [pdf-merge](https://github.com/agustinyarrus/pdf-merge) · [killport](https://github.com/agustinyarrus/killport) | Objetos PDF deduplicados como un DAG de Merkle en orden de Tarjan; bosques de procesos reconstruidos en <i>O</i>(<i>n</i>); campos de flujo de Dijkstra para las hordas |
 | **Gráficos** | [Chainmate](https://github.com/agustinyarrus/chainmate) · Lux | El Forward+ de Godot reconstruido pasada por pasada en WebGL2 — sombras en cascada, SSAO, SSIL, niebla volumétrica, glow; mipmaps en mosaicos de GPU con Direct2D |
 | **Métodos numéricos** | Chainmate · [vidsquash](https://github.com/agustinyarrus/vidsquash) | El redondeo de float32 reproducido exacto — hasta el recíproco inexacto de una GPU, <i>a</i>/<i>b</i> = <i>a</i>·rcp(<i>b</i>) — para que las partículas coincidan con el original hasta 2·10⁻⁶; clavar un tamaño de archivo exacto con el método de la secante sobre tamaño(bitrate) |
+| **Teoría de números** | [goldbach](https://github.com/agustinyarrus/goldbach) | La conjetura de Goldbach puesta a prueba con números: la predicción de Hardy–Littlewood auditada sobre 500.000 números pares, el cociente de paridad de Chen medido con una criba lineal, y candidatos adversariales armados con el teorema chino del resto y sondeados en la GPU hasta 1,8·10¹⁹ |
 | **Diseño minimalista** | todos | Interfaces oscuras y sin marco; tamaños de letra redondeados a píxeles enteros del dispositivo; ClearType intacto |
 
 ## Proyectos destacados
@@ -35,13 +36,17 @@ El álgebra, la física, la geometría, los gráficos y el diseño minimalista n
 | Proyecto | Qué es | Hecho con | Prueba |
 |:--|:--|:--|:--|
 | **[Chainmate](https://github.com/agustinyarrus/chainmate)** | Un roguelite de ajedrez hecho en Godot 4.7.2, reconstruido para la web y Android y verificado contra el `.exe` original | `JavaScript` `three.js` `WebGL2` `WASM` | 258 pruebas contra el oráculo · más de 28.000 glifos idénticos bit a bit |
+| **[hinokakera-android](https://github.com/agustinyarrus/hinokakera-android)** | Un juego de pelea de 2010 para Direct3D 9, llevado a Android por recompilación estática de x86 a C | `C` `Node.js` `OpenGL ES 3` `SDL3` | 9.306 funciones traducidas · 100 % de píxeles idénticos en los menús |
 | **[Carrona](https://github.com/agustinyarrus/carrona)** | Zombis vistos desde arriba, donde cada cuerpo es un ragdoll activo | `JavaScript` `three.js` `GLSL` | motor XPBD propio · 1.207 verificaciones físicas |
 | **[killport](https://github.com/agustinyarrus/killport)** | Libera un puerto ocupado en Windows — proceso, servicio, contenedor o WSL — y demuestra que queda libre | `Go` `Win32/NT` | 0 dependencias · 613 pruebas |
 | **[Lux](https://github.com/agustinyarrus/lux)** | Visor de imágenes nativo construido sobre pirámides de mipmaps en mosaicos de GPU | `C++17` `Direct2D` `WIC` | panorámica de 24.000 px a 57–60 fps |
 | **[Prisma](https://github.com/agustinyarrus/prisma)** | Cualquier imagen → el PNG/APNG sin pérdida más chico, con la transparencia bien hecha | `C17` `WIC` | 13 decodificadores propios · 236 casos de punta a punta |
 | **[Capcom](https://github.com/agustinyarrus/capcom)** | Control de misión para LLM locales | `C#` `WinForms/GDI` `llama.cpp` | ~560 KB · 0 paquetes NuGet |
+| **[cupo](https://github.com/agustinyarrus/cupo)** | Lo que te queda de cada IA, en la bandeja de Windows | `Go` `WebView2` `Win32` | 11 IAs · 2 MB en reposo · 0 consultas de fondo |
 | **[Folio](https://github.com/agustinyarrus/folio)** · **[Lumen](https://github.com/agustinyarrus/lumen)** · **[Cipher](https://github.com/agustinyarrus/cipher)** | Lector de Markdown, visor de imágenes y visor de código, oscuros y sin marco | `Go` `WebView2` | 127 formatos · más de 250 lenguajes |
 | **[clip2qr](https://github.com/agustinyarrus/clip2qr)** · **[pdf-merge](https://github.com/agustinyarrus/pdf-merge)** · **[img](https://github.com/agustinyarrus/img)** · **[vidsquash](https://github.com/agustinyarrus/vidsquash)** | Herramientas de consola: codificador QR, unión de PDF, conversor de imágenes, video a un tamaño objetivo | `Go` | motores propios de QR y PDF · 0 dependencias |
+
+<sub>También públicos: [goldbach](https://github.com/agustinyarrus/goldbach), nueve rondas de experimentos numéricos sobre la conjetura de Goldbach (ver *Teoría de números* más arriba), y [openai-math](https://github.com/agustinyarrus/openai-math), un espejo — no es trabajo mío — que preserva los manuscritos matemáticos de OpenAI y sus pruebas en Lean.</sub>
 
 ### [Chainmate](https://github.com/agustinyarrus/chainmate) — el mismo juego, demostrado
 
@@ -65,6 +70,27 @@ Tomé un juego de Godot 4.7.2 ya publicado — un `.exe` de 110 MB, sin los arch
 - **Piloto automático determinista:** el recorrido de capturas del propio juego, vuelto determinista (cuadros fijos de 1/60 s, RNG con semilla, sin entrada del escritorio) y corrido igual de los dos lados.
 - **Paridad de rendimiento:** 39,5 / 44 / 39,5 ms por cuadro a 1600×900 en una gráfica Iris Xe, contra 38,6 / 44,1 / 38,1 ms del original.
 - **Android:** Capacitor 6, targetSdk 36, con una prueba de humo en un emulador de API 36.
+
+</details>
+
+### [hinokakera-android](https://github.com/agustinyarrus/hinokakera-android) — un juego de pelea, recompilado
+
+`C` · `Node.js` · `iced-x86` · `SDL3` · `OpenGL ES 3` · `Android NDK`
+
+*Hinokakera Chaotic Eclipse* (Reddish Region, 2010) es un juego de pelea 3D para Direct3D 9. Lo porté a Android — y a Windows moderno — por **recompilación estática**: el `.exe` original se traduce instrucción por instrucción de x86 a C, y lo único que se reescribe son las DLL de Windows que usa. La lógica, la IA, los combos y el dibujo son los del juego. El repo no trae nada del juego: todo se genera a partir de una copia propia.
+
+- **El traductor:** descenso recursivo con iced-x86, tablas de saltos de VC6, funciones que no retornan, banderas que pasan de una función a otra (las rutinas en ensamblador del CRT), x87 sobre `double` con la precisión de 24/53 bits que deja Direct3D, y código descubierto por punteros en los datos — **9.306 funciones y 424.000 instrucciones**, sin que llegue a ejecutarse ninguna instrucción sin soporte.
+- **Windows, reescrito:** kernel32, user32, gdi32, winmm, dsound, dinput8, ws2_32, d3d9 y d3dx9 sobre SDL3 y OpenGL ES 3 — la función fija generada como GLSL, los shaders `vs_1_x` traducidos, las texturas y los mipmaps de D3DX idénticos a los de la DLL real.
+- **Medido contra el original:** un `d3d9.dll` y un `dinput8.dll` espías graban el backbuffer del original en los mismos cuadros y con las mismas teclas. En Android, el título y los menús dan **100 % idénticos** y las peleas 98,4–99,7 %; una pelea avanza cuadro por cuadro igual que en el original, en x86 y en ARM (sin FMA: `-ffp-contract=off`).
+- **Hecho para el celu:** pantalla ancha sin bordes negros (lo 2D queda a 1:1 en el centro y la cámara 3D se abre a los costados, Hor+), controles táctiles que se acomodan al tamaño físico de la pantalla, 56–60 fps en un Galaxy A52, donde corrió casi 8 minutos seguidos (27.900 cuadros) sin cortes.
+
+<details>
+<summary><b>Por dentro</b></summary>
+
+- **Runtime:** 4 GB de memoria del invitado, hilos con su propio TEB, despacho indirecto y manejo de fallas. Un candado del invitado hace que los hilos del juego no corran a la vez: el juego cuenta con el orden de memoria de x86, y en un ARM real el hilo de la música leía datos a medio escribir.
+- **Parches al traducir:** `analisis/parches.txt` cambia 34 instrucciones y una constante del `.exe` (después de verificar los bytes originales) e inserta cinco fragmentos de C — así la rueda de escenarios le hizo lugar a un octavo escenario.
+- **Escenarios hechos con código:** Outskirt Hill rehecho de noche y una playa nueva, Sunlit Shore — cielos, luna, pasto y piedra pintados proceduralmente, ruinas y árboles modelados en 3D —, empaquetados en un `vsobj2.dat` que el juego carga primero, sin tocar el ejecutable.
+- **Salas en red:** «VS Human (Network)» pasó a ser un lobby de salas. Un servidor chico en Node, sin dependencias, sólo conoce nombres y salas; la pelea va directo entre los dos jugadores con el protocolo UDP del propio juego, con perforación de NAT. El lobby tiene la cara de la pantalla de red original, y las palabras que el juego no tenía se escriben con letras recortadas de sus propias texturas.
 
 </details>
 
@@ -178,6 +204,16 @@ Una consola de escritorio para modelos GGUF locales, con el estilo del control d
 - **Todo hecho a mano:** renderizador de Markdown, resaltador de sintaxis, escritor de JSON, cliente SSE; descargas de Hugging Face que se reanudan con `Range` de HTTP y se verifican con SHA-256; el token de acceso cifrado con DPAPI; los tonos «Quindar» del Apolo (2525 / 2475 Hz) sintetizados en memoria.
 - **Diseño:** casi negro `#07080b`, pasteles apagados, pesos de Cascadia elegidos según el tamaño final en píxeles, espaciado entre letras dibujado a mano (GDI no lo tiene), una grilla de papel milimetrado y barras de instrumentos segmentadas.
 
+### [cupo](https://github.com/agustinyarrus/cupo) — el uso de cada IA, en 2 MB
+
+`Go` · `WebView2` · `Win32` · sin cgo · un solo `.exe`
+
+Un ícono en la bandeja que sabe cuánto te queda de cada IA — Claude, Codex, Antigravity, Grok, Kimi, DeepSeek, Qwen, You.com, Mistral, Copilot y Z.ai, una pestaña cada una, con todo el detalle que publica cada proveedor.
+
+- **Ninguna consulta de fondo:** su hilo duerme en el kernel hasta que Windows avisa que una IA escribió en su carpeta (`FindFirstChangeNotification`); una ventana de uso que se reinicia recibe un timer de un solo disparo, y al servidor de cada IA se le pregunta como mucho una vez cada 2 minutos.
+- **2 MB en reposo:** el panel de WebView2 existe sólo mientras está abierto. Al cerrarse, cupo devuelve la memoria y recorta su working set — 2,0 MB privados, donde una app de uso sólo para Claude, medida en la misma PC, ocupaba 411 MB.
+- **Cuidadoso con tus sesiones:** reusa la sesión que cada CLI ya dejó en la PC, le habla sólo al servidor de esa IA y nunca renueva un token que el CLI rota, porque eso le cerraría la sesión al CLI.
+
 ### Folio · Lumen · Cipher — una familia de apps silenciosas para Windows
 
 `Go` · `WebView2` · `Win32 / DWM / COM` · 100 % sin conexión
@@ -211,6 +247,8 @@ Tres visores oscuros y sin marco sobre una misma arquitectura: un backend en Go 
 | Prisma | 14,7 k de C | libdeflate | 13 decodificadores, codificador PNG/APNG, parser ISOBMFF, gestión de color, cuantizador |
 | Lux | 6,1 k de C++ | stb_image, nanosvg, qoi, tinyexr | renderizador de mipmaps en mosaicos, decodificadores BCn/XCF/retro/científicos, SIMD |
 | img | 3,8 k de Go | `golang.org/x/image` | color exacto al de libwebp, compositor de GIF, globbing |
+| cupo | 3,9 k de Go | go-webview2, `x/sys` | bucle de eventos sobre avisos de cambios, clientes de uso de 11 IAs, lector del Administrador de credenciales, ícono de la bandeja dibujado con código |
+| hinokakera-android | 7,5 k de C · 2,3 k de JS | iced-x86, SDL3 | traductor de x86 a C, runtime del invitado, 9 DLL de Windows, Direct3D 9 sobre OpenGL ES 3, servidor de salas |
 
 <sub>Líneas no vacías, sin contar las pruebas ni el código vendorizado. Las cuatro herramientas de consola en Go comparten una capa de terminal de ~2,6 mil líneas.</sub>
 
@@ -221,6 +259,7 @@ No miro a ojo: mido contra algo que ya sabe la respuesta.
 | Proyecto | Oráculo |
 |:--|:--|
 | [Chainmate](https://github.com/agustinyarrus/chainmate) | el `.exe` original, respondiendo más de 20 sondas desde adentro del motor real — 258 pruebas |
+| [hinokakera-android](https://github.com/agustinyarrus/hinokakera-android) | el juego original en Windows, visto a través de un `d3d9.dll` y un `dinput8.dll` espías: los mismos cuadros, las mismas teclas — 100 % de los píxeles en los menús, 98,4–99,7 % en las peleas |
 | clip2qr | zxing-cpp, decodificando todas las versiones de la 1 a la 40 |
 | img | libwebp, bit a bit — 18 de 18 casos de estrés |
 | pdf-merge | la verificación estricta de qpdf, el orden del texto de pypdf y un diff de píxeles con PDFium |
@@ -232,8 +271,8 @@ No miro a ojo: mido contra algo que ya sabe la respuesta.
 ## Stack
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/agustinyarrus/agustinyarrus/main/stack-dark.svg">
-  <img alt="Mi stack como una tabla periódica de 64 elementos. Lenguajes: Go, C, C++, C#, JavaScript, TypeScript, Python, Java. Más lenguajes: PowerShell, GLSL, WebAssembly, SQL, POSIX sh, GDScript, HTML, CSS. Gráficos: Direct2D, DirectWrite, WIC, WebGL2, three.js, FreeType, HarfBuzz, SIMD. Windows: Win32, API nativa de NT, COM, DWM, WebView2, GDI/GDI+, Service Control Manager, named pipes. Sistemas: Docker Engine API, WSL, tablas TCP/UDP, http.sys, HTTP/1.1, Server-Sent Events, Job Objects, UAC. Web y móvil: Node.js, Vite, Web Audio, AudioWorklet, Web Workers, PWA, Chrome DevTools Protocol, Android. Formatos: PNG/APNG, WebP, AVIF/HEIF, PDF, QR, GIF, DEFLATE, EXR/HDR. Herramientas e IA: Git, GitHub Actions, MSVC, clang/LLD, Zig cc, AddressSanitizer, ffmpeg, llama.cpp. Veinte de los símbolos también son elementos químicos de verdad." src="https://raw.githubusercontent.com/agustinyarrus/agustinyarrus/main/stack-light.svg" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/agustinyarrus/agustinyarrus/main/stack-dark.es.svg">
+  <img alt="Mi stack como una tabla periódica de 64 elementos. Lenguajes: Go, C, C++, C#, JavaScript, TypeScript, Python, Java. Más lenguajes: PowerShell, GLSL, WebAssembly, SQL, POSIX sh, GDScript, HTML, CSS. Gráficos: Direct2D, DirectWrite, WIC, WebGL2, three.js, FreeType, HarfBuzz, SIMD. Windows: Win32, API nativa de NT, COM, DWM, WebView2, GDI/GDI+, Service Control Manager, named pipes. Sistemas: Docker Engine API, WSL, tablas TCP/UDP, http.sys, HTTP/1.1, Server-Sent Events, Job Objects, UAC. Web y móvil: Node.js, Vite, Web Audio, AudioWorklet, Web Workers, PWA, Chrome DevTools Protocol, Android. Formatos: PNG/APNG, WebP, AVIF/HEIF, PDF, QR, GIF, DEFLATE, EXR/HDR. Herramientas: Git, GitHub Actions, MSVC, clang/LLD, Zig cc, AddressSanitizer, ffmpeg, llama.cpp. Veinte de los símbolos también son elementos químicos de verdad." src="https://raw.githubusercontent.com/agustinyarrus/agustinyarrus/main/stack-light.es.svg" width="100%">
 </picture>
 
 ## Cómo construyo
@@ -253,4 +292,4 @@ No miro a ojo: mido contra algo que ya sabe la respuesta.
 
 <sub>[LinkedIn](https://www.linkedin.com/in/ayarrus/) · Este README tampoco tiene dependencias: ni servicios de insignias ni rastreadores — cada imagen es un SVG hecho a mano en este repo, el código QR sale del codificador de clip2qr y la tela del encabezado está simulada con XPBD a 7 subpasos por cuadro, como Carrona.</sub>
 
-<!-- i18n source=README.md sha256=17b8df7b98da -->
+<!-- i18n source=README.md sha256=b7579033e128 -->

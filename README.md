@@ -7,7 +7,7 @@
 
 I write software the way I like mathematics: **small, exact and self-contained**. Native Windows apps measured in kilobytes, a physics engine in plain JavaScript, file-format parsers with no library underneath — and every claim checked against an independent oracle instead of by eye.
 
-**~149,000 lines** of my own code · **~48,000 lines** of tests · **14** public repos · **5** of them build from nothing but a standard library.
+**~169,000 lines** of my own code · **~49,000 lines** of tests · **18** public repos · **5** of them build from nothing but a standard library.
 
 ## Where the math lives
 
@@ -28,6 +28,7 @@ Algebra, physics, geometry, graphics and minimal design aren't hobbies next to m
 | **Graph theory** | [pdf-merge](https://github.com/agustinyarrus/pdf-merge) · [killport](https://github.com/agustinyarrus/killport) | PDF objects deduplicated as a Merkle DAG in Tarjan order; process forests rebuilt in <i>O</i>(<i>n</i>); Dijkstra flow fields for hordes |
 | **Graphics** | [Chainmate](https://github.com/agustinyarrus/chainmate) · Lux | Godot's Forward+ rebuilt pass by pass in WebGL2 — cascaded shadows, SSAO, SSIL, volumetric fog, glow; GPU-tiled mipmaps in Direct2D |
 | **Numerical methods** | Chainmate · [vidsquash](https://github.com/agustinyarrus/vidsquash) | float32 rounding reproduced exactly — even a GPU's inexact reciprocal, <i>a</i>/<i>b</i> = <i>a</i>·rcp(<i>b</i>) — so particles match the original to 2·10⁻⁶; hitting an exact file size with the secant method on size(bitrate) |
+| **Number theory** | [goldbach](https://github.com/agustinyarrus/goldbach) | Goldbach's conjecture put to the numbers: Hardy–Littlewood's prediction audited over 500,000 even numbers, Chen's parity ratio measured with a linear sieve, and adversarial candidates built with the Chinese remainder theorem, probed on the GPU up to 1.8·10¹⁹ |
 | **Minimal design** | all of them | Dark, frameless interfaces; font sizes rounded to whole device pixels; ClearType kept intact |
 
 ## Selected work
@@ -35,13 +36,17 @@ Algebra, physics, geometry, graphics and minimal design aren't hobbies next to m
 | Project | What it is | Built with | Proof |
 |:--|:--|:--|:--|
 | **[Chainmate](https://github.com/agustinyarrus/chainmate)** | A Godot 4.7.2 chess roguelite rebuilt for the web and Android, verified against the original `.exe` | `JavaScript` `three.js` `WebGL2` `WASM` | 258 oracle tests · 28,000+ glyphs bit-identical |
+| **[hinokakera-android](https://github.com/agustinyarrus/hinokakera-android)** | A 2010 Direct3D 9 fighting game brought to Android by static recompilation, x86 → C | `C` `Node.js` `OpenGL ES 3` `SDL3` | 9,306 functions translated · 100 % identical pixels on menus |
 | **[Carrona](https://github.com/agustinyarrus/carrona)** | Top-down zombies where every body is an active ragdoll | `JavaScript` `three.js` `GLSL` | own XPBD engine · 1,207 physics checks |
 | **[killport](https://github.com/agustinyarrus/killport)** | Frees a busy port on Windows — process, service, container or WSL — and proves it stays free | `Go` `Win32/NT` | 0 dependencies · 613 tests |
 | **[Lux](https://github.com/agustinyarrus/lux)** | Native image viewer built on GPU-tiled mipmap pyramids | `C++17` `Direct2D` `WIC` | 24,000-px panorama at 57–60 fps |
 | **[Prisma](https://github.com/agustinyarrus/prisma)** | Any image → the smallest lossless PNG/APNG, transparency done right | `C17` `WIC` | 13 own decoders · 236 end-to-end cases |
 | **[Capcom](https://github.com/agustinyarrus/capcom)** | Mission control for local LLMs | `C#` `WinForms/GDI` `llama.cpp` | ~560 KB · 0 NuGet packages |
+| **[cupo](https://github.com/agustinyarrus/cupo)** | How much of every AI you have left, in the Windows tray | `Go` `WebView2` `Win32` | 11 AIs · 2 MB at rest · 0 background polls |
 | **[Folio](https://github.com/agustinyarrus/folio)** · **[Lumen](https://github.com/agustinyarrus/lumen)** · **[Cipher](https://github.com/agustinyarrus/cipher)** | Dark, frameless Markdown reader, image viewer and code viewer | `Go` `WebView2` | 127 formats · 250+ languages |
 | **[clip2qr](https://github.com/agustinyarrus/clip2qr)** · **[pdf-merge](https://github.com/agustinyarrus/pdf-merge)** · **[img](https://github.com/agustinyarrus/img)** · **[vidsquash](https://github.com/agustinyarrus/vidsquash)** | Console tools: QR encoder, PDF merger, image converter, target-size video | `Go` | own QR and PDF engines · 0 dependencies |
+
+<sub>Also public: [goldbach](https://github.com/agustinyarrus/goldbach), nine rounds of numerical experiments on Goldbach's conjecture (see *Number theory* above), and [openai-math](https://github.com/agustinyarrus/openai-math), a mirror — not my work — that preserves OpenAI's math manuscripts and their Lean proofs.</sub>
 
 ### [Chainmate](https://github.com/agustinyarrus/chainmate) — the same game, proven
 
@@ -65,6 +70,27 @@ I took a shipped Godot 4.7.2 game — a 110 MB `.exe`, no project files — and 
 - **Deterministic autopilot:** the game's own screenshot tour made deterministic (fixed 1/60 s frames, seeded RNG, no desktop input) and run identically on both sides.
 - **Performance parity:** 39.5 / 44 / 39.5 ms per frame at 1600×900 on Iris Xe graphics, against the original's 38.6 / 44.1 / 38.1 ms.
 - **Android:** Capacitor 6, targetSdk 36, smoke-tested on an API 36 emulator.
+
+</details>
+
+### [hinokakera-android](https://github.com/agustinyarrus/hinokakera-android) — a fighting game, recompiled
+
+`C` · `Node.js` · `iced-x86` · `SDL3` · `OpenGL ES 3` · `Android NDK`
+
+*Hinokakera Chaotic Eclipse* (Reddish Region, 2010) is a 3D fighting game for Direct3D 9. I ported it to Android — and to modern Windows — by **static recompilation**: the original `.exe` is translated instruction by instruction from x86 to C, and the only things rewritten are the Windows DLLs it calls. Logic, AI, combos and drawing are the game's own. The repo ships none of the game: everything is generated from your own copy.
+
+- **The translator:** recursive descent with iced-x86, VC6 jump tables, functions that never return, flags carried across functions (the CRT's assembly routines), x87 on `double` at the 24/53-bit precision Direct3D leaves set, and code found through pointers in data — **9,306 functions and 424,000 instructions**, with no unsupported instruction ever executed.
+- **Windows, rewritten:** kernel32, user32, gdi32, winmm, dsound, dinput8, ws2_32, d3d9 and d3dx9 on top of SDL3 and OpenGL ES 3 — the fixed-function pipeline generated as GLSL, `vs_1_x` shaders translated, D3DX textures and mipmaps identical to the real DLL's.
+- **Measured against the original:** a spy `d3d9.dll` and `dinput8.dll` record the original's backbuffer on the same frames with the same keys. On Android, title and menus are **100 % identical** and fights 98.4–99.7 %; a fight advances frame for frame like the original on x86 and on ARM (no FMA: `-ffp-contract=off`).
+- **Made for a phone:** widescreen with no black bars (the 2D stays 1:1 in the center while the 3D camera opens up, Hor+), touch controls sized to the screen's physical dimensions, 56–60 fps on a Galaxy A52, where it ran almost 8 minutes straight (27,900 frames) without a hitch.
+
+<details>
+<summary><b>Under the hood</b></summary>
+
+- **Runtime:** 4 GB of guest memory, threads with their own TEB, indirect dispatch and fault handling. A guest lock keeps the game's threads from running at once: the game counts on x86 memory ordering, and on real ARM the music thread was reading half-written data.
+- **Patching while translating:** `analisis/parches.txt` changes 34 instructions and one constant of the `.exe` (after checking the original bytes) and inserts five C fragments — that's how the stage wheel made room for an eighth stage.
+- **Stages from code:** Outskirt Hill remade at night and a new beach stage, Sunlit Shore — skies, moon, grass and stone painted procedurally, ruins and trees modeled in 3D — packed into a `vsobj2.dat` the game loads first, without touching the executable.
+- **Online rooms:** "VS Human (Network)" became a lobby of rooms. A small Node server with no dependencies only knows names and rooms; the fight goes peer to peer over the game's own UDP protocol, with NAT hole punching. The lobby wears the original network screen, and the words the game never had are spelled with letters cut out of its own textures.
 
 </details>
 
@@ -178,6 +204,16 @@ A desktop console for local GGUF models, styled like Apollo mission control: it 
 - **Hand-made everything:** Markdown renderer, syntax highlighter, JSON writer, SSE client; Hugging Face downloads with HTTP `Range` resume and SHA-256 checks; the access token encrypted with DPAPI; Apollo "Quindar" tones (2525 / 2475 Hz) synthesized in memory.
 - **Design:** near-black `#07080b`, muted pastels, Cascadia weights chosen by final pixel size, letter-spacing drawn by hand (GDI has none), a graph-paper grid and segmented instrument bars.
 
+### [cupo](https://github.com/agustinyarrus/cupo) — every AI's usage, at 2 MB
+
+`Go` · `WebView2` · `Win32` · no cgo · one `.exe`
+
+A tray icon that knows how much of every AI you have left — Claude, Codex, Antigravity, Grok, Kimi, DeepSeek, Qwen, You.com, Mistral, Copilot and Z.ai, one tab each, with every detail each provider publishes.
+
+- **No background polling:** its thread sleeps in the kernel until Windows reports that an AI wrote to its folder (`FindFirstChangeNotification`); a usage window that resets gets a one-shot timer, and each AI's server is asked at most once every 2 minutes.
+- **2 MB at rest:** the WebView2 panel exists only while it's open. When it closes, cupo gives the memory back and trims its working set — 2.0 MB private, where a Claude-only usage app measured on the same PC used 411 MB.
+- **Careful with your sessions:** it reuses the session each CLI already left on the PC, talks only to that AI's own server and never refreshes a token the CLI rotates, which would log the CLI out.
+
 ### Folio · Lumen · Cipher — a family of quiet Windows apps
 
 `Go` · `WebView2` · `Win32 / DWM / COM` · 100 % offline
@@ -211,6 +247,8 @@ Three dark, frameless viewers on one architecture: a Go backend on a random loop
 | Prisma | 14.7k C | libdeflate | 13 decoders, PNG/APNG encoder, ISOBMFF parser, color management, quantizer |
 | Lux | 6.1k C++ | stb_image, nanosvg, qoi, tinyexr | tiled mipmap renderer, BCn/XCF/retro/scientific decoders, SIMD |
 | img | 3.8k Go | `golang.org/x/image` | libwebp-exact color, GIF compositor, globbing |
+| cupo | 3.9k Go | go-webview2, `x/sys` | event loop on change notifications, usage clients for 11 AIs, Credential Manager reader, tray icon drawn in code |
+| hinokakera-android | 7.5k C · 2.3k JS | iced-x86, SDL3 | x86 → C translator, guest runtime, 9 Windows DLLs, Direct3D 9 on OpenGL ES 3, room server |
 
 <sub>Non-blank lines; tests and vendored code excluded. The four Go console tools share a ~2.6k-line terminal layer.</sub>
 
@@ -221,6 +259,7 @@ I don't eyeball; I measure against something that already knows the answer.
 | Project | Oracle |
 |:--|:--|
 | [Chainmate](https://github.com/agustinyarrus/chainmate) | the original `.exe`, answering 20+ probes from inside the real engine — 258 tests |
+| [hinokakera-android](https://github.com/agustinyarrus/hinokakera-android) | the original game on Windows, seen through a spy `d3d9.dll` and `dinput8.dll`: same frames, same keys — 100 % of pixels on menus, 98.4–99.7 % in fights |
 | clip2qr | zxing-cpp, decoding every version from 1 to 40 |
 | img | libwebp, bit for bit — 18 of 18 stress cases |
 | pdf-merge | qpdf's strict check, pypdf's text order and a PDFium pixel diff |
