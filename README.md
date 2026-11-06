@@ -7,7 +7,7 @@
 
 I write software the way I like mathematics: **small, exact and self-contained**. Native Windows apps measured in kilobytes, a physics engine in plain JavaScript, file-format parsers with no library underneath — and every claim checked against an independent oracle instead of by eye.
 
-**~169,000 lines** of my own code · **~49,000 lines** of tests · **18** public repos · **5** of them build from nothing but a standard library.
+**~172,000 lines** of my own code · **~49,000 lines** of tests · **18** public repos · **5** of them build from nothing but a standard library.
 
 ## Where the math lives
 
@@ -248,7 +248,7 @@ Three dark, frameless viewers on one architecture: a Go backend on a random loop
 | Lux | 6.1k C++ | stb_image, nanosvg, qoi, tinyexr | tiled mipmap renderer, BCn/XCF/retro/scientific decoders, SIMD |
 | img | 3.8k Go | `golang.org/x/image` | libwebp-exact color, GIF compositor, globbing |
 | cupo | 3.9k Go | go-webview2, `x/sys` | event loop on change notifications, usage clients for 11 AIs, Credential Manager reader, tray icon drawn in code |
-| hinokakera-android | 7.5k C · 2.3k JS | iced-x86, SDL3 | x86 → C translator, guest runtime, 9 Windows DLLs, Direct3D 9 on OpenGL ES 3, room server |
+| hinokakera-android | 8.8k C · 3.5k JS | iced-x86, SDL3 | x86 → C translator, guest runtime, 9 Windows DLLs, Direct3D 9 on OpenGL ES 3, room server |
 
 <sub>Non-blank lines; tests and vendored code excluded. The four Go console tools share a ~2.6k-line terminal layer.</sub>
 

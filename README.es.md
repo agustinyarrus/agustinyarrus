@@ -7,7 +7,7 @@
 
 Escribo software como me gusta la matemática: **chico, exacto y autocontenido**. Apps nativas de Windows que se miden en kilobytes, un motor de física en JavaScript puro, parsers de formatos de archivo sin ninguna biblioteca abajo — y cada afirmación verificada contra un oráculo independiente en vez de a ojo.
 
-**~169.000 líneas** de código propio · **~49.000 líneas** de pruebas · **18** repos públicos · **5** de ellos se compilan sin nada más que una biblioteca estándar.
+**~172.000 líneas** de código propio · **~49.000 líneas** de pruebas · **18** repos públicos · **5** de ellos se compilan sin nada más que una biblioteca estándar.
 
 ## Dónde vive la matemática
 
@@ -248,7 +248,7 @@ Tres visores oscuros y sin marco sobre una misma arquitectura: un backend en Go 
 | Lux | 6,1 k de C++ | stb_image, nanosvg, qoi, tinyexr | renderizador de mipmaps en mosaicos, decodificadores BCn/XCF/retro/científicos, SIMD |
 | img | 3,8 k de Go | `golang.org/x/image` | color exacto al de libwebp, compositor de GIF, globbing |
 | cupo | 3,9 k de Go | go-webview2, `x/sys` | bucle de eventos sobre avisos de cambios, clientes de uso de 11 IAs, lector del Administrador de credenciales, ícono de la bandeja dibujado con código |
-| hinokakera-android | 7,5 k de C · 2,3 k de JS | iced-x86, SDL3 | traductor de x86 a C, runtime del invitado, 9 DLL de Windows, Direct3D 9 sobre OpenGL ES 3, servidor de salas |
+| hinokakera-android | 8,8 k de C · 3,5 k de JS | iced-x86, SDL3 | traductor de x86 a C, runtime del invitado, 9 DLL de Windows, Direct3D 9 sobre OpenGL ES 3, servidor de salas |
 
 <sub>Líneas no vacías, sin contar las pruebas ni el código vendorizado. Las cuatro herramientas de consola en Go comparten una capa de terminal de ~2,6 mil líneas.</sub>
 
@@ -292,4 +292,4 @@ No miro a ojo: mido contra algo que ya sabe la respuesta.
 
 <sub>[LinkedIn](https://www.linkedin.com/in/ayarrus/) · Este README tampoco tiene dependencias: ni servicios de insignias ni rastreadores — cada imagen es un SVG hecho a mano en este repo, el código QR sale del codificador de clip2qr y la tela del encabezado está simulada con XPBD a 7 subpasos por cuadro, como Carrona.</sub>
 
-<!-- i18n source=README.md sha256=b7579033e128 -->
+<!-- i18n source=README.md sha256=9d741717addd -->
