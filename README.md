@@ -7,7 +7,7 @@
 
 I write software the way I like mathematics: **small, exact and self-contained**. Native Windows apps measured in kilobytes, a physics engine in plain JavaScript, file-format parsers with no library underneath — and every claim checked against an independent oracle instead of by eye.
 
-**~172,000 lines** of my own code · **~49,000 lines** of tests · **18** public repos · **5** of them build from nothing but a standard library.
+**~174,000 lines** of my own code · **~49,000 lines** of tests · **20** public repos · **5** of them build from nothing but a standard library.
 
 ## Where the math lives
 
@@ -37,6 +37,7 @@ Algebra, physics, geometry, graphics and minimal design aren't hobbies next to m
 |:--|:--|:--|:--|
 | **[Chainmate](https://github.com/agustinyarrus/chainmate)** | A Godot 4.7.2 chess roguelite rebuilt for the web and Android, verified against the original `.exe` | `JavaScript` `three.js` `WebGL2` `WASM` | 258 oracle tests · 28,000+ glyphs bit-identical |
 | **[hinokakera-android](https://github.com/agustinyarrus/hinokakera-android)** | A 2010 Direct3D 9 fighting game brought to Android by static recompilation, x86 → C | `C` `Node.js` `OpenGL ES 3` `SDL3` | 9,306 functions translated · 100 % identical pixels on menus |
+| **[nfs-carbon-rebuild](https://github.com/agustinyarrus/nfs-carbon-rebuild)** | Need for Speed Carbon (PC, 2006) given the split screen and the 1v1 online racing it never had, patched in memory | `JavaScript` `Frida` `Node.js` `x86` | 5 console blockers re-enabled · starts in sync within 7 ms |
 | **[Carrona](https://github.com/agustinyarrus/carrona)** | Top-down zombies where every body is an active ragdoll | `JavaScript` `three.js` `GLSL` | own XPBD engine · 1,207 physics checks |
 | **[killport](https://github.com/agustinyarrus/killport)** | Frees a busy port on Windows — process, service, container or WSL — and proves it stays free | `Go` `Win32/NT` | 0 dependencies · 613 tests |
 | **[Lux](https://github.com/agustinyarrus/lux)** | Native image viewer built on GPU-tiled mipmap pyramids | `C++17` `Direct2D` `WIC` | 24,000-px panorama at 57–60 fps |

@@ -7,7 +7,7 @@
 
 Escribo software como me gusta la matemática: **chico, exacto y autocontenido**. Apps nativas de Windows que se miden en kilobytes, un motor de física en JavaScript puro, parsers de formatos de archivo sin ninguna biblioteca abajo — y cada afirmación verificada contra un oráculo independiente en vez de a ojo.
 
-**~172.000 líneas** de código propio · **~49.000 líneas** de pruebas · **18** repos públicos · **5** de ellos se compilan sin nada más que una biblioteca estándar.
+**~174.000 líneas** de código propio · **~49.000 líneas** de pruebas · **20** repos públicos · **5** de ellos se compilan sin nada más que una biblioteca estándar.
 
 ## Dónde vive la matemática
 
@@ -37,6 +37,7 @@ El álgebra, la física, la geometría, los gráficos y el diseño minimalista n
 |:--|:--|:--|:--|
 | **[Chainmate](https://github.com/agustinyarrus/chainmate)** | Un roguelite de ajedrez hecho en Godot 4.7.2, reconstruido para la web y Android y verificado contra el `.exe` original | `JavaScript` `three.js` `WebGL2` `WASM` | 258 pruebas contra el oráculo · más de 28.000 glifos idénticos bit a bit |
 | **[hinokakera-android](https://github.com/agustinyarrus/hinokakera-android)** | Un juego de pelea de 2010 para Direct3D 9, llevado a Android por recompilación estática de x86 a C | `C` `Node.js` `OpenGL ES 3` `SDL3` | 9.306 funciones traducidas · 100 % de píxeles idénticos en los menús |
+| **[nfs-carbon-rebuild](https://github.com/agustinyarrus/nfs-carbon-rebuild)** | Need for Speed Carbon (PC, 2006) con la pantalla dividida y el online 1 contra 1 que no tenía, corregido en memoria | `JavaScript` `Frida` `Node.js` `x86` | 5 trabas de consola reactivadas · largadas sincronizadas a menos de 7 ms |
 | **[Carrona](https://github.com/agustinyarrus/carrona)** | Zombis vistos desde arriba, donde cada cuerpo es un ragdoll activo | `JavaScript` `three.js` `GLSL` | motor XPBD propio · 1.207 verificaciones físicas |
 | **[killport](https://github.com/agustinyarrus/killport)** | Libera un puerto ocupado en Windows — proceso, servicio, contenedor o WSL — y demuestra que queda libre | `Go` `Win32/NT` | 0 dependencias · 613 pruebas |
 | **[Lux](https://github.com/agustinyarrus/lux)** | Visor de imágenes nativo construido sobre pirámides de mipmaps en mosaicos de GPU | `C++17` `Direct2D` `WIC` | panorámica de 24.000 px a 57–60 fps |
@@ -292,4 +293,4 @@ No miro a ojo: mido contra algo que ya sabe la respuesta.
 
 <sub>[LinkedIn](https://www.linkedin.com/in/ayarrus/) · Este README tampoco tiene dependencias: ni servicios de insignias ni rastreadores — cada imagen es un SVG hecho a mano en este repo, el código QR sale del codificador de clip2qr y la tela del encabezado está simulada con XPBD a 7 subpasos por cuadro, como Carrona.</sub>
 
-<!-- i18n source=README.md sha256=9d741717addd -->
+<!-- i18n source=README.md sha256=a67681f2e4c8 -->
