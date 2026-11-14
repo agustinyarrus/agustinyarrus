@@ -5,18 +5,38 @@
   <img alt="Agustin Yarrus — desarrollador de software de Argentina. Software chico, rápido y sin dependencias. Me interesan el álgebra, la física, la geometría, los gráficos y el diseño minimalista. Go, C, C++, C#, JavaScript, TypeScript, Python, GLSL." src="https://raw.githubusercontent.com/agustinyarrus/agustinyarrus/main/header-light.es.svg" width="100%">
 </picture>
 
+<p align="center">
+  <b><a href="https://www.linkedin.com/in/ayarrus/">LinkedIn</a></b> · <b><a href="https://www.agustinyarrus.com">agustinyarrus.com</a></b>
+  <br>
+  <sub><a href="#dónde-vive-la-matemática">Matemática</a> · <a href="#proyectos-destacados">Proyectos</a> · <a href="#cero-dependencias-en-números">Dependencias</a> · <a href="#cómo-verifico">Pruebas</a> · <a href="#stack">Stack</a> · <a href="#contacto">Contacto</a></sub>
+</p>
+
 Escribo software como me gusta la matemática: **chico, exacto y autocontenido**. Apps nativas de Windows que se miden en kilobytes, un motor de física en JavaScript puro, parsers de formatos de archivo sin ninguna biblioteca abajo — y cada afirmación verificada contra un oráculo independiente en vez de a ojo.
 
-**~174.000 líneas** de código propio · **~49.000 líneas** de pruebas · **20** repos públicos · **5** de ellos se compilan sin nada más que una biblioteca estándar.
+**~203.000 líneas** de código propio · **~60.000 líneas** de pruebas · **20** repos públicos · **5** de ellos se compilan sin nada más que una biblioteca estándar.
 
 ## Dónde vive la matemática
 
-El álgebra, la física, la geometría, los gráficos y el diseño minimalista no son pasatiempos al lado de mi código — son la forma en que funciona. Seis figuras, cada una sacada de uno de mis repos:
+El álgebra, la física, la geometría, los gráficos y el diseño minimalista no son pasatiempos al lado de mi código — son la forma en que funciona. Seis figuras, y cada una corre el algoritmo que muestra, con las constantes de mis repos:
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/agustinyarrus/agustinyarrus/main/figures-dark.es.svg">
-  <img alt="Seis figuras: una restricción de distancia de XPBD (Carrona), IK analítica de dos huesos (Carrona), el zoom alrededor del cursor como una homotecia (Lux, Lumen), las ocho orientaciones EXIF como el grupo diedral D4 (Prisma), un código QR hecho por el codificador Reed–Solomon propio de clip2qr sobre GF(2^8) y un campo de flujo de Dijkstra que guía a una horda (Carrona)." src="https://raw.githubusercontent.com/agustinyarrus/agustinyarrus/main/figures-light.es.svg" width="100%">
+  <img alt="Seis figuras animadas: una restricción de distancia de XPBD que se asienta en 14 subpasos (Carrona), una pierna que camina con IK analítica de dos huesos (Carrona), el zoom alrededor del cursor como una homotecia (Lux, Lumen), una F que recorre las ocho orientaciones EXIF del grupo diedral D4 (Prisma), un código QR hecho por el codificador Reed–Solomon propio de clip2qr sobre GF(2^8) que se daña y se sigue leyendo, y un campo de flujo de Dijkstra que guía a una horda hacia un objetivo que se mueve (Carrona)." src="https://raw.githubusercontent.com/agustinyarrus/agustinyarrus/main/figures-light.es.svg" width="100%">
 </picture>
+
+<sub><b>Las seis están corriendo</b> — los algoritmos reales con las constantes reales, como SMIL adentro del SVG: sin GIF, sin scripts, y se quedan quietas si tu sistema pide movimiento reducido. Probá escanear el código QR mientras está dañado.</sub>
+
+<details>
+<summary><b>Qué hace cada figura</b></summary>
+
+1. **XPBD.** Una riostra del torso de un ragdoll de Carrona (15 kg y 3 kg, 2·10⁻⁶ m/N) se estira y se suelta: 14 subpasos de <i>h</i> = 1/420 s con una sola pasada de restricciones cada uno, el bucle de `world.js`.
+2. **IK.** El objetivo del pie sigue la marcha del juego — lineal en el apoyo, una cúbica de Hermite en el vuelo — y la rodilla se resuelve en cada instante.
+3. **Zoom.** Tres pasos de rueda de ×1,18, alrededor de dos puntos distintos: el punto que está bajo el cursor nunca se mueve.
+4. **<i>D</i><sub>4</sub>.** Una F se gira (<i>r</i>) y se espeja (<i>s</i>) de verdad y cae en la casilla de cada producto: <i>r</i>⁴ = <i>e</i> y después <i>srs</i> = <i>r</i>⁻¹, compuestas con las matrices de 2×2 que usa Prisma.
+5. **Reed–Solomon.** Una mancha rompe 9 de los 70 codewords del código; los 26 de corrección reparan hasta 13, así que se lee mientras está dañado: zxing-cpp lo lee en cada cuarto de segundo del ciclo.
+6. **Campo de flujo.** El objetivo da una vuelta y el campo se recalcula cada medio metro con la regla de `nav.js`; la horda lo persigue como en `zombie.js`.
+
+</details>
 
 | | Dónde | La idea |
 |:--|:--|:--|
@@ -28,6 +48,7 @@ El álgebra, la física, la geometría, los gráficos y el diseño minimalista n
 | **Teoría de grafos** | [pdf-merge](https://github.com/agustinyarrus/pdf-merge) · [killport](https://github.com/agustinyarrus/killport) | Objetos PDF deduplicados como un DAG de Merkle en orden de Tarjan; bosques de procesos reconstruidos en <i>O</i>(<i>n</i>); campos de flujo de Dijkstra para las hordas |
 | **Gráficos** | [Chainmate](https://github.com/agustinyarrus/chainmate) · Lux | El Forward+ de Godot reconstruido pasada por pasada en WebGL2 — sombras en cascada, SSAO, SSIL, niebla volumétrica, glow; mipmaps en mosaicos de GPU con Direct2D |
 | **Métodos numéricos** | Chainmate · [vidsquash](https://github.com/agustinyarrus/vidsquash) | El redondeo de float32 reproducido exacto — hasta el recíproco inexacto de una GPU, <i>a</i>/<i>b</i> = <i>a</i>·rcp(<i>b</i>) — para que las partículas coincidan con el original hasta 2·10⁻⁶; clavar un tamaño de archivo exacto con el método de la secante sobre tamaño(bitrate) |
+| **Visión por computadora** | [Mando](https://github.com/agustinyarrus/mando-pruebas-automaticas) | Una pantalla entera alineada con una transformación de similitud — Umeyama en forma cerrada adentro de RANSAC; toques ubicados a una fracción de píxel por correlación de fase (el teorema del corrimiento de Fourier detrás de una ventana de Hann); CIEDE2000 verificada contra los 24 pares de Sharma; un filtro de Kalman en cada coordenada aprendida |
 | **Teoría de números** | [goldbach](https://github.com/agustinyarrus/goldbach) | La conjetura de Goldbach puesta a prueba con números: la predicción de Hardy–Littlewood auditada sobre 500.000 números pares, el cociente de paridad de Chen medido con una criba lineal, y candidatos adversariales armados con el teorema chino del resto y sondeados en la GPU hasta 1,8·10¹⁹ |
 | **Diseño minimalista** | todos | Interfaces oscuras y sin marco; tamaños de letra redondeados a píxeles enteros del dispositivo; ClearType intacto |
 
@@ -39,6 +60,7 @@ El álgebra, la física, la geometría, los gráficos y el diseño minimalista n
 | **[hinokakera-android](https://github.com/agustinyarrus/hinokakera-android)** | Un juego de pelea de 2010 para Direct3D 9, llevado a Android por recompilación estática de x86 a C | `C` `Node.js` `OpenGL ES 3` `SDL3` | 9.306 funciones traducidas · 100 % de píxeles idénticos en los menús |
 | **[nfs-carbon-rebuild](https://github.com/agustinyarrus/nfs-carbon-rebuild)** | Need for Speed Carbon (PC, 2006) con la pantalla dividida y el online 1 contra 1 que no tenía, corregido en memoria | `JavaScript` `Frida` `Node.js` `x86` | 5 trabas de consola reactivadas · largadas sincronizadas a menos de 7 ms |
 | **[Carrona](https://github.com/agustinyarrus/carrona)** | Zombis vistos desde arriba, donde cada cuerpo es un ragdoll activo | `JavaScript` `three.js` `GLSL` | motor XPBD propio · 1.207 verificaciones físicas |
+| **[Mando](https://github.com/agustinyarrus/mando-pruebas-automaticas)** | Pruebas de punta a punta de una app móvil en emulador, teléfono real y BrowserStack, con un motor de visión que vuelve a encontrar cada control | `Python` `NumPy` `LightGBM` `adb` | 252 objetos de 19 pantallas reales: todos encontrados, a 0,13 px · se deja engañar el 9,2 % de las veces (el método clásico: 25,8 %) |
 | **[killport](https://github.com/agustinyarrus/killport)** | Libera un puerto ocupado en Windows — proceso, servicio, contenedor o WSL — y demuestra que queda libre | `Go` `Win32/NT` | 0 dependencias · 613 pruebas |
 | **[Lux](https://github.com/agustinyarrus/lux)** | Visor de imágenes nativo construido sobre pirámides de mipmaps en mosaicos de GPU | `C++17` `Direct2D` `WIC` | panorámica de 24.000 px a 57–60 fps |
 | **[Prisma](https://github.com/agustinyarrus/prisma)** | Cualquier imagen → el PNG/APNG sin pérdida más chico, con la transparencia bien hecha | `C17` `WIC` | 13 decodificadores propios · 236 casos de punta a punta |
@@ -89,9 +111,32 @@ Tomé un juego de Godot 4.7.2 ya publicado — un `.exe` de 110 MB, sin los arch
 <summary><b>Por dentro</b></summary>
 
 - **Runtime:** 4 GB de memoria del invitado, hilos con su propio TEB, despacho indirecto y manejo de fallas. Un candado del invitado hace que los hilos del juego no corran a la vez: el juego cuenta con el orden de memoria de x86, y en un ARM real el hilo de la música leía datos a medio escribir.
-- **Parches al traducir:** `analisis/parches.txt` cambia 34 instrucciones y una constante del `.exe` (después de verificar los bytes originales) e inserta cinco fragmentos de C — así la rueda de escenarios le hizo lugar a un octavo escenario.
-- **Escenarios hechos con código:** Outskirt Hill rehecho de noche y una playa nueva, Sunlit Shore — cielos, luna, pasto y piedra pintados proceduralmente, ruinas y árboles modelados en 3D —, empaquetados en un `vsobj2.dat` que el juego carga primero, sin tocar el ejecutable.
+- **Parches al traducir:** `analisis/parches.txt` cambia 34 instrucciones y una constante del `.exe` (después de verificar los bytes originales) e inserta cinco fragmentos de C — así la rueda de escenarios pasó de ocho lugares fijos a once, con Random eligiendo entre diez escenarios.
+- **Ganchos:** `analisis/ganchos.txt` agrega funciones en C que corren justo antes de una instrucción del `.exe`, con los registros a mano. El original compara toda altura con 0; con 52 ganchos, sus 41 comparaciones de altura miden contra lo que haya abajo — por eso Eclipse Caldera tiene 17 columnas de basalto donde se puede caer parado, de 3,5 a 20 de alto, para luchadores que miden ~20 y saltan ~16,5.
+- **Escenarios hechos con código:** son cuatro — Outskirt Hill rehecho de noche, Sunlit Shore (una playa), Lost Grave -Undead- (una horda de zombis cuyos huesos viajan en vértices de datos y se animan en cada cuadro) y Eclipse Caldera (una isla de basalto en un lago de lava, bajo un eclipse total). Cielos, lunas, mar y piedra están pintados proceduralmente, las ruinas y los árboles modelados en 3D, y todo va empaquetado en un `vsobj2.dat` que el juego carga primero, sin tocar el ejecutable.
 - **Salas en red:** «VS Human (Network)» pasó a ser un lobby de salas. Un servidor chico en Node, sin dependencias, sólo conoce nombres y salas; la pelea va directo entre los dos jugadores con el protocolo UDP del propio juego, con perforación de NAT. El lobby tiene la cara de la pantalla de red original, y las palabras que el juego no tenía se escriben con letras recortadas de sus propias texturas.
+
+</details>
+
+### [nfs-carbon-rebuild](https://github.com/agustinyarrus/nfs-carbon-rebuild) — el multijugador que nunca tuvo
+
+`JavaScript` · `Frida` · `Ghidra` · `x86` · `Node.js` · `UDP`
+
+*Need for Speed Carbon* (PC, 2006) con dos cosas que no traía: pantalla dividida para dos, y carreras online 1 contra 1, de IP a IP, con tu propio servidor de salas. Las dos son plugins que corrigen el juego en memoria — `NFSC.exe` no se toca — y cada hallazgo queda anotado con su dirección y su evidencia.
+
+- **La pantalla dividida, prendida de nuevo.** El ejecutable de PC trae casi todo el código de pantalla dividida de las consolas, recortado en cinco puntos: 1 KB de memoria de autos para el modo dividido, un modo de vistas que nadie atiende, el render de la segunda vista, el puerto del jugador 2 y su dispositivo de entrada. El plugin corrige los cinco en ejecución: dos jugadores en Quick Race, cada uno con su cámara, su HUD y su control.
+- **El online, hecho de cero.** El de EA no vuelve: las carreras las corrían servidores dedicados de EA y el cliente de PC nunca aloja una — llegué hasta iniciar sesión y listar salas contra mi propio emulador de FESL. Entonces el rival de la IA de una carrera rápida *pasa a ser* el otro jugador: en cada cuadro recibe su posición, su rotación y sus velocidades por la interfaz `IRigidBody` del propio juego, adelantadas medio ping.
+- **Su auto, con su pintura.** Cuando el juego arma tu auto, el plugin manda el modelo y su ficha; cuando arma el del rival, le pasa los del otro y lo crea como auto *remoto*, igual que los rivales del online original: sin IA al volante, y la tabla de posiciones lo sigue.
+- **Sincronizados.** `NotifyCountdownDone` y `StartRaceTimers` se retienen hasta que los dos terminaron el 3-2-1: la largada y el reloj quedan a **2–7 ms** de diferencia, también después de reiniciar. Un estado de 57 bytes por cuadro y por jugador, unos 3,5 KB/s.
+
+<details>
+<summary><b>Por dentro</b></summary>
+
+- **El servidor de salas sólo presenta:** `salas.mjs`, Node sin dependencias, le dice a cada juego la dirección del otro; de ahí en más los dos se abren paso por el NAT y la carrera nunca pasa por el servidor.
+- **Ingeniería inversa:** Ghidra 12 y Frida 17 sobre `NFSC.exe` v1.4 — la tabla de corredores (`GRaceStatus + 0x18`, de a `0x384`), la tabla de handles y su `QueryInterface`, la fábrica de `PVehicle` y su bloque de parámetros. Las claves de Attrib resultaron ser hashes lookup2 de Jenkins con semilla `0xABCDEF00`: `camaro` es `0x90944519`.
+- **Cargado, no parchado:** el Frida Gadget entra por un cargador de ASI. Con cualquier otro ejecutable, o sin el lanzador, los plugins no hacen nada.
+- **Dos copias en una PC, para probar:** el control de instancia única parchado a `xor al, al` / `ret`, y el bucle de mensajes que sigue andando sin foco.
+- **En qué está:** funciona con dos copias del juego en una PC; dos PC por internet es la próxima prueba, y el archivo de estado lo dice.
 
 </details>
 
@@ -119,6 +164,29 @@ Un shooter de zombis visto desde arriba donde cada cuerpo en pantalla — el jug
 - **Render:** cuerpos instanciados; GLSL propio (gradación de color, un lote de sprites con quads alineados a la cámara, al rayo y a la superficie, el cono de la linterna); texturas procedurales sin costuras horneadas en Web Workers; cada shader compilado detrás del menú, así nada se traba en medio de la partida.
 - **Contenido:** 104 armas modeladas proceduralmente (hitscan, rayos, rieles, relámpagos en cadena, proyectiles, chorros, ondas sónicas), 5 mapas, una campaña de 8 misiones más el modo infinito, 25 maneras de levantarse, 23 de caer, 21 sacudones.
 - **Herramientas sin dependencias:** sin bundler; mi propio escritor de ZIP, codificador PNG/ICO, cliente del Chrome DevTools Protocol y cliente de subida a Google Play (con su propio JWT RS256). Se distribuye como PWA, como instalador de Windows y como APK de Android.
+
+</details>
+
+### [Mando](https://github.com/agustinyarrus/mando-pruebas-automaticas) — pruebas que vuelven a encontrar el botón
+
+`Python` · `NumPy` · `LightGBM` · `ONNX Runtime` · `adb` · `BrowserStack` · **sin OpenCV**
+
+Pruebas de punta a punta de una app móvil — Cerradura Connect — en emulador, en un teléfono por adb y en los dispositivos reales de BrowserStack, desde una sola ventana negra. Una prueba es un JSON. Los ids de la app se renumeran solos, así que cada control se *absorbe* de la pantalla — su color en HSV y en CIE L\*a\*b\*, la forma, el tamaño, la posición, una máscara de 64×32 y una firma numérica — y se vuelve a encontrar al correr.
+
+- **Primero, la pantalla entera alineada.** Los textos de la pantalla se emparejan con los absorbidos y se ajusta una transformación de similitud <i>sR</i><b>x</b> + <b>t</b> en forma cerrada (Umeyama, una SVD de 2×2) adentro de un RANSAC en dos etapas. Sin un solo texto, cada máscara se busca en toda la pantalla por ZNCC — FFT e imágenes integrales — y las anclas votan una traslación: aguanta un scroll de 300 px.
+- **20 criterios, dos jueces.** Hash perceptual por DCT, HOG, momentos de Hu, histograma de matiz, LBP, SSIM, espectro radial, CIEDE2000, resortes entre los objetos ya encontrados… fusionados por un naive Bayes calibrado y un modelo de LightGBM que votan.
+- **Toques a una fracción de píxel.** Correlación de fase — el teorema del corrimiento de Fourier detrás de una ventana de Hann, el pico afinado con una parábola y su relación pico-lóbulo como un criterio más — y después una pasada fina de ZNCC a resolución real.
+- **Los números, sobre 252 objetos de 19 pantallas reales:** todos encontrados, a **0,13 px** de donde se absorbieron, y se deja engañar el **9,2 %** de las veces en la pantalla vecina, donde el objeto no está. El método clásico se deja engañar el 25,8 %.
+
+<details>
+<summary><b>Por dentro</b></summary>
+
+- **El color, por el camino largo:** sRGB → XYZ → L\*a\*b\* → la CIEDE2000 completa, verificada contra los 24 pares de referencia de Sharma (peor error: 4·10⁻⁵).
+- **Las coordenadas aprendidas no oscilan:** un filtro de Kalman por eje, cuya varianza es la confianza para tocar a ciegas; dos corridas seguidas que coinciden lo reinician cuando un botón se mudó de verdad.
+- **Se explica solo:** cada hallazgo, y cada fallo, dice qué criterios fallaron y cómo era el candidato más parecido.
+- **Una consola SQL,** de sólo lectura, sobre las corridas, las pruebas, los objetos y el mapa de la app, con 25 preguntas ya escritas.
+- **La app:** una ventana nativa sin marco con la pantalla del celu en vivo y la letra en píxeles enteros del dispositivo — el mismo cuidado que en mis herramientas de Windows.
+- **Probado:** 37 verificaciones de la geometría, 31 del motor sobre pantallas reales y 25 de la interfaz sin ventana; el juez da un AUC de 0,9998, y de 0,992 en cuatro pantallas que nunca vio.
 
 </details>
 
@@ -240,18 +308,20 @@ Tres visores oscuros y sin marco sobre una misma arquitectura: un backend en Go 
 | Proyecto | Líneas de código mío | Código de terceros | Lo que escribí a mano en su lugar |
 |:--|--:|:--|:--|
 | killport | 28,3 k de Go | **ninguno** — sólo la biblioteca estándar | 79 enlaces a Win32/NT, cliente HTTP/1.1, `net.Conn` sobre named pipes, parser de flags, interfaz de terminal |
-| pdf-merge | 6,9 k de Go | **ninguno** | lexer, parser y escritor de PDF, descifrado, deduplicación de Merkle |
-| clip2qr | 3,8 k de Go | **ninguno** | codificador QR, aritmética en GF(2⁸), Reed–Solomon, BCH |
-| vidsquash | 3,9 k de Go | **ninguno** (ffmpeg en tiempo de ejecución) | planificador del control de bitrate, parseo de ffprobe, verificación de calidad |
+| pdf-merge | 7,3 k de Go | **ninguno** | lexer, parser y escritor de PDF, descifrado, deduplicación de Merkle |
+| clip2qr | 4,1 k de Go | **ninguno** | codificador QR, aritmética en GF(2⁸), Reed–Solomon, BCH |
+| vidsquash | 4,4 k de Go | **ninguno** (ffmpeg en tiempo de ejecución) | planificador del control de bitrate, parseo de ffprobe, verificación de calidad |
 | Capcom | 12,6 k de C# | **ninguno** — el .NET Framework que ya trae Windows | renderizador de Markdown, resaltador, escritor de JSON, cliente SSE, interfaz GDI |
 | Carrona | 21,5 k de JS | three.js, para el render | motor XPBD, IK, campos de flujo, sintetizador, escritores de ZIP/PNG/ICO, cliente CDP |
 | Prisma | 14,7 k de C | libdeflate | 13 decodificadores, codificador PNG/APNG, parser ISOBMFF, gestión de color, cuantizador |
 | Lux | 6,1 k de C++ | stb_image, nanosvg, qoi, tinyexr | renderizador de mipmaps en mosaicos, decodificadores BCn/XCF/retro/científicos, SIMD |
-| img | 3,8 k de Go | `golang.org/x/image` | color exacto al de libwebp, compositor de GIF, globbing |
+| img | 4,1 k de Go | `golang.org/x/image` | color exacto al de libwebp, compositor de GIF, globbing |
 | cupo | 3,9 k de Go | go-webview2, `x/sys` | bucle de eventos sobre avisos de cambios, clientes de uso de 11 IAs, lector del Administrador de credenciales, ícono de la bandeja dibujado con código |
-| hinokakera-android | 8,8 k de C · 3,5 k de JS | iced-x86, SDL3 | traductor de x86 a C, runtime del invitado, 9 DLL de Windows, Direct3D 9 sobre OpenGL ES 3, servidor de salas |
+| hinokakera-android | 9,2 k de C · 4,7 k de JS | iced-x86, SDL3 | traductor de x86 a C, runtime del invitado, 9 DLL de Windows, Direct3D 9 sobre OpenGL ES 3, herramientas de escenarios, servidor de salas |
+| nfs-carbon-rebuild | 2,5 k de JS | Frida Gadget, un cargador de ASI | arreglos de la pantalla dividida, protocolo UDP de juego a juego, servidor de salas, lanzadores, un emulador de FESL |
+| Mando | 22,0 k de Python · 2,5 k de JS | NumPy, Pillow, LightGBM, ONNX Runtime, pywebview | lo que habría hecho OpenCV: Umeyama + RANSAC, correlación de fase, ZNCC por FFT, CIEDE2000, pHash, HOG, momentos de Hu, LBP, SSIM, Kalman |
 
-<sub>Líneas no vacías, sin contar las pruebas ni el código vendorizado. Las cuatro herramientas de consola en Go comparten una capa de terminal de ~2,6 mil líneas.</sub>
+<sub>Líneas no vacías, sin contar las pruebas ni el código vendorizado; un archivo que está copiado se cuenta una sola vez. Las cuatro herramientas de consola en Go comparten una capa de terminal de ~2,9 mil líneas.</sub>
 
 ## Cómo verifico
 
@@ -261,6 +331,8 @@ No miro a ojo: mido contra algo que ya sabe la respuesta.
 |:--|:--|
 | [Chainmate](https://github.com/agustinyarrus/chainmate) | el `.exe` original, respondiendo más de 20 sondas desde adentro del motor real — 258 pruebas |
 | [hinokakera-android](https://github.com/agustinyarrus/hinokakera-android) | el juego original en Windows, visto a través de un `d3d9.dll` y un `dinput8.dll` espías: los mismos cuadros, las mismas teclas — 100 % de los píxeles en los menús, 98,4–99,7 % en las peleas |
+| [nfs-carbon-rebuild](https://github.com/agustinyarrus/nfs-carbon-rebuild) | el propio juego, dos veces: dos copias en la misma carrera, comparando largadas y relojes — 2–7 ms de diferencia, también después de reiniciar |
+| [Mando](https://github.com/agustinyarrus/mando-pruebas-automaticas) | un banco de 19 pantallas reales: cada uno de los 252 objetos se busca en su pantalla y en la vecina, donde no está; los 24 pares de Sharma para ΔE2000 |
 | clip2qr | zxing-cpp, decodificando todas las versiones de la 1 a la 40 |
 | img | libwebp, bit a bit — 18 de 18 casos de estrés |
 | pdf-merge | la verificación estricta de qpdf, el orden del texto de pypdf y un diff de píxeles con PDFium |
@@ -288,9 +360,14 @@ No miro a ojo: mido contra algo que ya sabe la respuesta.
 
 - Trabajando en servicios de backend y pipelines de CI/CD.
 - Terminando **vidsquash** y agrandando la familia de herramientas nativas para Windows.
+- Llevando el online 1 contra 1 de **nfs-carbon-rebuild** de dos copias en una PC a dos PC por internet.
+
+## Contacto
+
+**[LinkedIn](https://www.linkedin.com/in/ayarrus/)** es la forma más rápida de escribirme; mi sitio es **[agustinyarrus.com](https://www.agustinyarrus.com)**. Estoy en Argentina (UTC−3).
 
 ---
 
-<sub>[LinkedIn](https://www.linkedin.com/in/ayarrus/) · Este README tampoco tiene dependencias: ni servicios de insignias ni rastreadores — cada imagen es un SVG hecho a mano en este repo, el código QR sale del codificador de clip2qr y la tela del encabezado está simulada con XPBD a 7 subpasos por cuadro, como Carrona.</sub>
+<sub>Este README tampoco tiene dependencias: ni servicios de insignias ni rastreadores — cada imagen es un SVG hecho a mano en este repo, el código QR sale del codificador de clip2qr, la tela del encabezado está simulada con XPBD a 7 subpasos por cuadro, como Carrona, y las seis figuras están animadas adentro del propio SVG con los algoritmos que muestran.</sub>
 
 <!-- i18n source=README.md sha256=a67681f2e4c8 -->

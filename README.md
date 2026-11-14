@@ -5,18 +5,38 @@
   <img alt="Agustin Yarrus — software developer from Argentina. Small, fast, dependency-free software. Into algebra, physics, geometry, graphics and minimal design. Go, C, C++, C#, JavaScript, TypeScript, Python, GLSL." src="https://raw.githubusercontent.com/agustinyarrus/agustinyarrus/main/header-light.svg" width="100%">
 </picture>
 
+<p align="center">
+  <b><a href="https://www.linkedin.com/in/ayarrus/">LinkedIn</a></b> · <b><a href="https://www.agustinyarrus.com">agustinyarrus.com</a></b>
+  <br>
+  <sub><a href="#where-the-math-lives">Math</a> · <a href="#selected-work">Work</a> · <a href="#zero-dependencies-by-the-numbers">Dependencies</a> · <a href="#how-i-verify">Proof</a> · <a href="#stack">Stack</a> · <a href="#contact">Contact</a></sub>
+</p>
+
 I write software the way I like mathematics: **small, exact and self-contained**. Native Windows apps measured in kilobytes, a physics engine in plain JavaScript, file-format parsers with no library underneath — and every claim checked against an independent oracle instead of by eye.
 
-**~174,000 lines** of my own code · **~49,000 lines** of tests · **20** public repos · **5** of them build from nothing but a standard library.
+**~203,000 lines** of my own code · **~60,000 lines** of tests · **20** public repos · **5** of them build from nothing but a standard library.
 
 ## Where the math lives
 
-Algebra, physics, geometry, graphics and minimal design aren't hobbies next to my code — they're how it works. Six figures, each taken from one of my repos:
+Algebra, physics, geometry, graphics and minimal design aren't hobbies next to my code — they're how it works. Six figures, each one running the algorithm it shows, with the constants from my repos:
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/agustinyarrus/agustinyarrus/main/figures-dark.svg">
-  <img alt="Six figures: an XPBD distance constraint (Carrona), analytic two-bone IK (Carrona), zoom about the cursor as a homothety (Lux, Lumen), the eight EXIF orientations as the dihedral group D4 (Prisma), a QR code made by clip2qr's own Reed–Solomon encoder over GF(2^8), and a Dijkstra flow field steering a horde (Carrona)." src="https://raw.githubusercontent.com/agustinyarrus/agustinyarrus/main/figures-light.svg" width="100%">
+  <img alt="Six animated figures: an XPBD distance constraint ringing down over 14 substeps (Carrona), a leg walking on analytic two-bone IK (Carrona), zoom about the cursor as a homothety (Lux, Lumen), an F walking through the eight EXIF orientations of the dihedral group D4 (Prisma), a QR code made by clip2qr's own Reed–Solomon encoder over GF(2^8) that is damaged and still scans, and a Dijkstra flow field steering a horde toward a moving target (Carrona)." src="https://raw.githubusercontent.com/agustinyarrus/agustinyarrus/main/figures-light.svg" width="100%">
 </picture>
+
+<sub><b>All six are running</b> — the real algorithms with the real constants, as SMIL inside the SVG: no GIFs, no scripts, and they hold still if your system asks for reduced motion. Try scanning the QR code while it is damaged.</sub>
+
+<details>
+<summary><b>What each figure is doing</b></summary>
+
+1. **XPBD.** A torso brace of a Carrona ragdoll (15 kg and 3 kg, 2·10⁻⁶ m/N) is stretched and let go: 14 substeps of <i>h</i> = 1/420 s with one constraint pass each, the loop in `world.js`.
+2. **IK.** The foot target follows the game's gait — linear in stance, a cubic Hermite in swing — and the knee is solved at every instant.
+3. **Zoom.** Three wheel notches of ×1.18, about two different points: the point under the cursor never moves.
+4. **<i>D</i><sub>4</sub>.** An F is turned (<i>r</i>) and flipped (<i>s</i>) for real and lands on the tile of each product: <i>r</i>⁴ = <i>e</i>, then <i>srs</i> = <i>r</i>⁻¹, composed with the 2×2 matrices Prisma uses.
+5. **Reed–Solomon.** A stain breaks 9 of the code's 70 codewords; its 26 of error correction repair up to 13, so it scans while it is damaged — zxing-cpp reads it at every quarter second of the loop.
+6. **Flow field.** The target walks a lap and the field is rebuilt every half metre by the rule in `nav.js`; the horde chases it as in `zombie.js`.
+
+</details>
 
 | | Where | The idea |
 |:--|:--|:--|
@@ -28,6 +48,7 @@ Algebra, physics, geometry, graphics and minimal design aren't hobbies next to m
 | **Graph theory** | [pdf-merge](https://github.com/agustinyarrus/pdf-merge) · [killport](https://github.com/agustinyarrus/killport) | PDF objects deduplicated as a Merkle DAG in Tarjan order; process forests rebuilt in <i>O</i>(<i>n</i>); Dijkstra flow fields for hordes |
 | **Graphics** | [Chainmate](https://github.com/agustinyarrus/chainmate) · Lux | Godot's Forward+ rebuilt pass by pass in WebGL2 — cascaded shadows, SSAO, SSIL, volumetric fog, glow; GPU-tiled mipmaps in Direct2D |
 | **Numerical methods** | Chainmate · [vidsquash](https://github.com/agustinyarrus/vidsquash) | float32 rounding reproduced exactly — even a GPU's inexact reciprocal, <i>a</i>/<i>b</i> = <i>a</i>·rcp(<i>b</i>) — so particles match the original to 2·10⁻⁶; hitting an exact file size with the secant method on size(bitrate) |
+| **Computer vision** | [Mando](https://github.com/agustinyarrus/mando-pruebas-automaticas) | A whole screen aligned by a similarity transform — Umeyama in closed form inside RANSAC; taps placed to a fraction of a pixel by phase correlation (the Fourier shift theorem behind a Hann window); CIEDE2000 checked against Sharma's 24 pairs; a Kalman filter on every learned coordinate |
 | **Number theory** | [goldbach](https://github.com/agustinyarrus/goldbach) | Goldbach's conjecture put to the numbers: Hardy–Littlewood's prediction audited over 500,000 even numbers, Chen's parity ratio measured with a linear sieve, and adversarial candidates built with the Chinese remainder theorem, probed on the GPU up to 1.8·10¹⁹ |
 | **Minimal design** | all of them | Dark, frameless interfaces; font sizes rounded to whole device pixels; ClearType kept intact |
 
@@ -39,6 +60,7 @@ Algebra, physics, geometry, graphics and minimal design aren't hobbies next to m
 | **[hinokakera-android](https://github.com/agustinyarrus/hinokakera-android)** | A 2010 Direct3D 9 fighting game brought to Android by static recompilation, x86 → C | `C` `Node.js` `OpenGL ES 3` `SDL3` | 9,306 functions translated · 100 % identical pixels on menus |
 | **[nfs-carbon-rebuild](https://github.com/agustinyarrus/nfs-carbon-rebuild)** | Need for Speed Carbon (PC, 2006) given the split screen and the 1v1 online racing it never had, patched in memory | `JavaScript` `Frida` `Node.js` `x86` | 5 console blockers re-enabled · starts in sync within 7 ms |
 | **[Carrona](https://github.com/agustinyarrus/carrona)** | Top-down zombies where every body is an active ragdoll | `JavaScript` `three.js` `GLSL` | own XPBD engine · 1,207 physics checks |
+| **[Mando](https://github.com/agustinyarrus/mando-pruebas-automaticas)** | End-to-end tests for a mobile app on an emulator, a real phone and BrowserStack, by a vision engine that finds every control again | `Python` `NumPy` `LightGBM` `adb` | 252 objects on 19 real screens: all found, 0.13 px off · fooled 9.2 % of the time (classic method: 25.8 %) |
 | **[killport](https://github.com/agustinyarrus/killport)** | Frees a busy port on Windows — process, service, container or WSL — and proves it stays free | `Go` `Win32/NT` | 0 dependencies · 613 tests |
 | **[Lux](https://github.com/agustinyarrus/lux)** | Native image viewer built on GPU-tiled mipmap pyramids | `C++17` `Direct2D` `WIC` | 24,000-px panorama at 57–60 fps |
 | **[Prisma](https://github.com/agustinyarrus/prisma)** | Any image → the smallest lossless PNG/APNG, transparency done right | `C17` `WIC` | 13 own decoders · 236 end-to-end cases |
@@ -89,9 +111,32 @@ I took a shipped Godot 4.7.2 game — a 110 MB `.exe`, no project files — and 
 <summary><b>Under the hood</b></summary>
 
 - **Runtime:** 4 GB of guest memory, threads with their own TEB, indirect dispatch and fault handling. A guest lock keeps the game's threads from running at once: the game counts on x86 memory ordering, and on real ARM the music thread was reading half-written data.
-- **Patching while translating:** `analisis/parches.txt` changes 34 instructions and one constant of the `.exe` (after checking the original bytes) and inserts five C fragments — that's how the stage wheel made room for an eighth stage.
-- **Stages from code:** Outskirt Hill remade at night and a new beach stage, Sunlit Shore — skies, moon, grass and stone painted procedurally, ruins and trees modeled in 3D — packed into a `vsobj2.dat` the game loads first, without touching the executable.
+- **Patching while translating:** `analisis/parches.txt` changes 34 instructions and one constant of the `.exe` (after checking the original bytes) and inserts five C fragments — that's how the stage wheel went from eight fixed slots to eleven, with Random choosing among ten stages.
+- **Hooks:** `analisis/ganchos.txt` adds C functions that run right before an instruction of the `.exe`, with the registers at hand. The original compares every height with 0; with 52 hooks its 41 height comparisons measure against whatever is underneath — so Eclipse Caldera has 17 basalt columns to land on, 3.5 to 20 high, for fighters who are ~20 tall and jump ~16.5.
+- **Stages from code:** four of them — Outskirt Hill remade at night, Sunlit Shore (a beach), Lost Grave -Undead- (a horde of zombies whose bones travel in data vertices and are animated every frame) and Eclipse Caldera (a basalt island in a lava lake, under a total eclipse). Skies, moons, sea and stone are painted procedurally, ruins and trees modeled in 3D, and everything is packed into a `vsobj2.dat` the game loads first, without touching the executable.
 - **Online rooms:** "VS Human (Network)" became a lobby of rooms. A small Node server with no dependencies only knows names and rooms; the fight goes peer to peer over the game's own UDP protocol, with NAT hole punching. The lobby wears the original network screen, and the words the game never had are spelled with letters cut out of its own textures.
+
+</details>
+
+### [nfs-carbon-rebuild](https://github.com/agustinyarrus/nfs-carbon-rebuild) — the multiplayer it never had
+
+`JavaScript` · `Frida` · `Ghidra` · `x86` · `Node.js` · `UDP`
+
+*Need for Speed Carbon* (PC, 2006) with two things it never shipped: two-player split screen, and 1v1 online races, IP to IP, through your own room server. Both are plugins that fix the game in memory — `NFSC.exe` is never modified — and every finding is written down with its address and its evidence.
+
+- **Split screen, switched back on.** The PC executable ships almost all of the consoles' split-screen code, cut short in five places: a 1 KB car-memory budget for split mode, a view mode nobody handles, the rendering of the second view, player 2's port and their input device. The plugin fixes all five at run time: two players in Quick Race, each with their own camera, HUD and controls.
+- **Online, built new.** EA's mode can't come back: races ran on EA's dedicated servers and the PC client never hosts — I got as far as logging in and listing rooms against my own FESL emulator. So the AI opponent of a quick race *becomes* the other player: every frame it is given their position, rotation and velocities through the game's own `IRigidBody` interface, extrapolated by half the ping.
+- **Their car, their paint.** When the game builds your car the plugin sends its model and its record; when it builds the opponent's, it hands those over and builds it as a *remote* car, like the opponents of the original online mode: no AI at the wheel, and the standings follow it.
+- **In sync.** `NotifyCountdownDone` and `StartRaceTimers` are held until both players have finished the 3-2-1: start and race clock **2–7 ms apart**, also after a restart. One 57-byte state per frame and per player, about 3.5 KB/s.
+
+<details>
+<summary><b>Under the hood</b></summary>
+
+- **The room server only introduces:** `salas.mjs`, Node with no dependencies, tells each game the other's address; from there the two punch through NAT and the race never passes through the server.
+- **Reverse engineering:** Ghidra 12 and Frida 17 on `NFSC.exe` v1.4 — the racer table (`GRaceStatus + 0x18`, stride `0x384`), the handle table and its `QueryInterface`, the `PVehicle` factory and its parameter block. Attrib keys turned out to be Jenkins lookup2 hashes seeded with `0xABCDEF00`: `camaro` is `0x90944519`.
+- **Loaded, not patched:** Frida Gadget rides in through an ASI loader. With any other executable, or without the launcher, the plugins do nothing.
+- **Two copies on one PC, for testing:** the single-instance check patched to `xor al, al` / `ret`, and the message loop kept running without focus.
+- **Where it stands:** it works with two copies of the game on one PC; two PCs over the internet is the next test, and the status file says so.
 
 </details>
 
@@ -119,6 +164,29 @@ A top-down zombie shooter where every body on screen — the player included —
 - **Rendering:** instanced bodies; my own GLSL (color grading, a sprite batch of camera-, beam- and surface-aligned quads, the flashlight cone); seamless procedural textures baked in Web Workers; every shader compiled behind the menu, so nothing hitches mid-game.
 - **Content:** 104 procedurally modeled weapons (hitscan, beams, rails, chain lightning, projectiles, streams, sonic waves), 5 maps, an 8-mission campaign plus endless mode, 25 ways to get up, 23 ways to fall, 21 flinches.
 - **Tooling without dependencies:** no bundler; my own ZIP writer, PNG/ICO encoder, Chrome DevTools Protocol client and Google Play upload client (with its own RS256 JWT). Ships as a PWA, a Windows installer and an Android APK.
+
+</details>
+
+### [Mando](https://github.com/agustinyarrus/mando-pruebas-automaticas) — tests that find the button again
+
+`Python` · `NumPy` · `LightGBM` · `ONNX Runtime` · `adb` · `BrowserStack` · **no OpenCV**
+
+End-to-end tests for a mobile app — Cerradura Connect — on an emulator, a phone over adb and BrowserStack's real devices, from one dark window. A test is a JSON file. The app's ids renumber themselves, so each control is *absorbed* from the screen instead — its color in HSV and CIE L\*a\*b\*, shape, size, position, a 64×32 mask and a numeric signature — and found again at run time.
+
+- **The whole screen, aligned first.** The texts on screen are paired with the absorbed ones and a similarity transform <i>sR</i><b>x</b> + <b>t</b> is fitted in closed form (Umeyama, a 2×2 SVD) inside a two-stage RANSAC. With no text at all, every mask is searched across the screen by ZNCC — FFT and integral images — and the anchors vote a translation: it survives a 300 px scroll.
+- **20 criteria, two judges.** Perceptual hash by DCT, HOG, Hu moments, hue histogram, LBP, SSIM, radial spectrum, CIEDE2000, springs between the objects already found… fused by a calibrated naive Bayes and a LightGBM model that vote.
+- **Taps to a fraction of a pixel.** Phase correlation — the Fourier shift theorem behind a Hann window, the peak refined by a parabola, its peak-to-sidelobe ratio used as one more criterion — and then a fine ZNCC pass at full resolution.
+- **Numbers, on 252 objects from 19 real screens:** every one found, **0.13 px** from where it was absorbed, and fooled **9.2 %** of the time on the neighbouring screen, where the object isn't. The classic method is fooled 25.8 % of the time.
+
+<details>
+<summary><b>Under the hood</b></summary>
+
+- **Color, the long way:** sRGB → XYZ → L\*a\*b\* → the full CIEDE2000, checked against Sharma's 24 reference pairs (worst error 4·10⁻⁵).
+- **Learned coordinates don't oscillate:** a Kalman filter per axis, whose variance is the confidence to tap blind; two runs in a row that agree restart it when a button really moved.
+- **It explains itself:** every find, and every miss, says which criteria failed and what the closest candidate looked like.
+- **A SQL console,** read-only, over runs, tests, objects and the app's map, with 25 questions already written.
+- **The app:** a native frameless window with the phone's screen live, type sized to whole device pixels — the same care as my Windows tools.
+- **Tested:** 37 checks of the geometry, 31 of the engine on real screens, 25 of the interface without a window; the judge scores an AUC of 0.9998, and 0.992 on four screens it never saw.
 
 </details>
 
@@ -240,18 +308,20 @@ Three dark, frameless viewers on one architecture: a Go backend on a random loop
 | Project | Lines of my code | Third-party code | Written by hand instead |
 |:--|--:|:--|:--|
 | killport | 28.3k Go | **none** — standard library only | 79 Win32/NT bindings, HTTP/1.1 client, named-pipe `net.Conn`, flag parser, terminal UI |
-| pdf-merge | 6.9k Go | **none** | PDF lexer, parser and writer, decryption, Merkle deduplication |
-| clip2qr | 3.8k Go | **none** | QR encoder, GF(2⁸) arithmetic, Reed–Solomon, BCH |
-| vidsquash | 3.9k Go | **none** (ffmpeg at run time) | rate-control planner, ffprobe parsing, quality check |
+| pdf-merge | 7.3k Go | **none** | PDF lexer, parser and writer, decryption, Merkle deduplication |
+| clip2qr | 4.1k Go | **none** | QR encoder, GF(2⁸) arithmetic, Reed–Solomon, BCH |
+| vidsquash | 4.4k Go | **none** (ffmpeg at run time) | rate-control planner, ffprobe parsing, quality check |
 | Capcom | 12.6k C# | **none** — .NET Framework in-box | Markdown renderer, highlighter, JSON writer, SSE client, GDI interface |
 | Carrona | 21.5k JS | three.js, for rendering | XPBD engine, IK, flow fields, synthesizer, ZIP/PNG/ICO writers, CDP client |
 | Prisma | 14.7k C | libdeflate | 13 decoders, PNG/APNG encoder, ISOBMFF parser, color management, quantizer |
 | Lux | 6.1k C++ | stb_image, nanosvg, qoi, tinyexr | tiled mipmap renderer, BCn/XCF/retro/scientific decoders, SIMD |
-| img | 3.8k Go | `golang.org/x/image` | libwebp-exact color, GIF compositor, globbing |
+| img | 4.1k Go | `golang.org/x/image` | libwebp-exact color, GIF compositor, globbing |
 | cupo | 3.9k Go | go-webview2, `x/sys` | event loop on change notifications, usage clients for 11 AIs, Credential Manager reader, tray icon drawn in code |
-| hinokakera-android | 8.8k C · 3.5k JS | iced-x86, SDL3 | x86 → C translator, guest runtime, 9 Windows DLLs, Direct3D 9 on OpenGL ES 3, room server |
+| hinokakera-android | 9.2k C · 4.7k JS | iced-x86, SDL3 | x86 → C translator, guest runtime, 9 Windows DLLs, Direct3D 9 on OpenGL ES 3, stage tools, room server |
+| nfs-carbon-rebuild | 2.5k JS | Frida Gadget, an ASI loader | split-screen fixes, game-to-game UDP protocol, room server, launchers, a FESL emulator |
+| Mando | 22.0k Python · 2.5k JS | NumPy, Pillow, LightGBM, ONNX Runtime, pywebview | what OpenCV would have done: Umeyama + RANSAC, phase correlation, ZNCC by FFT, CIEDE2000, pHash, HOG, Hu moments, LBP, SSIM, Kalman |
 
-<sub>Non-blank lines; tests and vendored code excluded. The four Go console tools share a ~2.6k-line terminal layer.</sub>
+<sub>Non-blank lines; tests and vendored code excluded; a file that is copied is counted once. The four Go console tools share a ~2.9k-line terminal layer.</sub>
 
 ## How I verify
 
@@ -261,6 +331,8 @@ I don't eyeball; I measure against something that already knows the answer.
 |:--|:--|
 | [Chainmate](https://github.com/agustinyarrus/chainmate) | the original `.exe`, answering 20+ probes from inside the real engine — 258 tests |
 | [hinokakera-android](https://github.com/agustinyarrus/hinokakera-android) | the original game on Windows, seen through a spy `d3d9.dll` and `dinput8.dll`: same frames, same keys — 100 % of pixels on menus, 98.4–99.7 % in fights |
+| [nfs-carbon-rebuild](https://github.com/agustinyarrus/nfs-carbon-rebuild) | the game itself, twice: two copies in the same race, starts and race clocks compared — 2–7 ms apart, also after a restart |
+| [Mando](https://github.com/agustinyarrus/mando-pruebas-automaticas) | a bench of 19 real screens: each of 252 objects searched on its own screen and on the neighbouring one, where it isn't; Sharma's 24 pairs for ΔE2000 |
 | clip2qr | zxing-cpp, decoding every version from 1 to 40 |
 | img | libwebp, bit for bit — 18 of 18 stress cases |
 | pdf-merge | qpdf's strict check, pypdf's text order and a PDFium pixel diff |
@@ -288,7 +360,12 @@ I don't eyeball; I measure against something that already knows the answer.
 
 - Working on backend services and CI/CD pipelines.
 - Finishing **vidsquash** and growing the family of native Windows tools.
+- Taking **nfs-carbon-rebuild**'s 1v1 online from two copies on one PC to two PCs over the internet.
+
+## Contact
+
+**[LinkedIn](https://www.linkedin.com/in/ayarrus/)** is the quickest way to reach me; my site is **[agustinyarrus.com](https://www.agustinyarrus.com)**. I'm in Argentina (UTC−3).
 
 ---
 
-<sub>[LinkedIn](https://www.linkedin.com/in/ayarrus/) · This README has no dependencies either: no badge services, no trackers — every image is a hand-made SVG in this repo, the QR code comes from clip2qr's encoder, and the cloth in the header is simulated with XPBD at 7 substeps per frame, like Carrona.</sub>
+<sub>This README has no dependencies either: no badge services, no trackers — every image is a hand-made SVG in this repo, the QR code comes from clip2qr's encoder, the cloth in the header is simulated with XPBD at 7 substeps per frame, like Carrona, and the six figures are animated inside the SVG itself from the algorithms they show.</sub>
